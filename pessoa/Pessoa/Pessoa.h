@@ -9,7 +9,7 @@ public:
     void almentarFelicidade();
     
 private:
-    int altura;
+    double altura;
     int idade;
     int niveldeFelicidade;
 };

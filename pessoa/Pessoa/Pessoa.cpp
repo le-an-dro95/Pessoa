@@ -1,15 +1,24 @@
 #include "Pessoa.h"
 
-void Pessoa::crescer()
+#include <iostream>
+using std::cout;
+
+Pessoa::crescer()
 {
+    altura=0.0;
 }
 
-void Pessoa::envelhecer()
+Pessoa::envelhecer()
 {
+    idade=0;
 }
 
-void Pessoa::almentarFelicidade()
+Pessoa::almentarFelicidade()
 {
+    niveldefelicidade=0;
+}
+void Pessoa::crescer(){
+    cout << "Altura: " <<altura<< '\n';
 }
 
 

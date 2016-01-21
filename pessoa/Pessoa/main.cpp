@@ -1,7 +1,15 @@
-#include <stdio.h>
+#include <iostream>
+using std::cout;
+
+#include "Pessoa.h"
 
 int main(int argc, char **argv)
 {
-	printf("hello world\n");
-	return 0;
+    Pessoa gente;
+    
+    gente.crescer();
+    gente.envelhecer();
+    gente.almentarFelicidade();
+    
+    return 0;
 }
