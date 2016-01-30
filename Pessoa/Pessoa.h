@@ -12,7 +12,8 @@ public:
     void infNome();
     void infIdade();
     void infGenero();
-
+    void listaNomes(int n, Pessoa *gente);
+    void pesquisarDados(int n, Pessoa *gente);
     Pessoa();
     ~Pessoa();
     
