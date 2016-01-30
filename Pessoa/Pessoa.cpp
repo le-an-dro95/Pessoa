@@ -1,25 +1,44 @@
 #include "Pessoa.h"
-
 #include <iostream>
-using std::cout;
 
-Pessoa::crescer()
+using namespace std;
+
+Pessoa::Pessoa()
 {
-    altura=0.0;
 }
 
-Pessoa::envelhecer()
+Pessoa::~Pessoa()
 {
-    idade=0;
 }
 
-Pessoa::almentarFelicidade()
+void Pessoa::adcNome()
 {
-    niveldefelicidade=0;
-}
-void Pessoa::crescer(){
-    cout << "Altura: " <<altura<< '\n';
+    cout<<"Digite Nome: ";
+    cin>>nome;
 }
 
+void Pessoa::adcIdade()
+{
+    cout<<"Digite Idade: ";
+    cin>>idade;
+}
 
+void Pessoa::adcGenero()
+{
+    cout<<"Digite o Genero: ";
+    cin>>genero;    
+}
+
+void Pessoa::infNome()
+{
+    cout<<"Nome: "<<nome<<"\n";  
+}
+void Pessoa::infIdade()
+{
+    cout<<"Idade: "<<idade<<"\n";      
+}
+void Pessoa::infGenero()
+{
+    cout<<"Genero: "<<genero<<"\n";
+}
 

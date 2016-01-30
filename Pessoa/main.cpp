@@ -3,13 +3,17 @@ using std::cout;
 
 #include "Pessoa.h"
 
-int main(int argc, char **argv)
+int main()
 {
     Pessoa gente;
-    
-    gente.crescer();
-    gente.envelhecer();
-    gente.almentarFelicidade();
-    
+        
+    gente.adcNome();
+    gente.adcIdade();
+    gente.adcGenero();
+    system("cls");
+    cout<<"Dados: \n\n";
+    gente.infNome();
+    gente.infIdade();
+    gente.infGenero();
     return 0;
 }

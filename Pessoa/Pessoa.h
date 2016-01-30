@@ -1,17 +1,26 @@
 #ifndef PESSOA_H
 #define PESSOA_H
+#include <string>
+using namespace std;
 
 class Pessoa
 {
 public:
-    void crescer();
-    void envelhecer();
-    void almentarFelicidade();
+    void adcNome();
+    void adcIdade();
+    void adcGenero();
+    void infNome();
+    void infIdade();
+    void infGenero();
+
+    Pessoa();
+    ~Pessoa();
     
 private:
-    double altura;
+    string nome;
     int idade;
-    int niveldeFelicidade;
+    string genero; 
+    
 };
 
 #endif // PESSOA_H
