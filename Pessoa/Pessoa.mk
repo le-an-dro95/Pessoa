@@ -5,7 +5,7 @@
 ## Debug
 ProjectName            :=Pessoa
 ConfigurationName      :=Debug
-WorkspacePath          := "C:\Users\ledri\OneDrive\Documentos\amigo"
+WorkspacePath          := "C:\Users\ledri\OneDrive\Documentos\ola"
 ProjectPath            := "C:\Users\ledri\Desktop\Pessoa\Pessoa"
 IntermediateDirectory  :=./Debug
 OutDir                 := $(IntermediateDirectory)
@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=ledri
-Date                   :=30/01/2016
+Date                   :=01/02/2016
 CodeLitePath           :="C:\Program Files\CodeLite"
 LinkerName             :=C:/TDM-GCC-64/bin/g++.exe
 SharedObjectLinkerName :=C:/TDM-GCC-64/bin/g++.exe -shared -fPIC

@@ -6,49 +6,48 @@ using namespace std;
 
 Pessoa::Pessoa()
 {
+    nome="";
+    idade=0;
+    genero="";
 }
 
 Pessoa::~Pessoa()
 {
 }
 
-void Pessoa::adcNome()
+void Pessoa::setNome(string nome)
 {
-    cout<<"Digite Nome: ";
-    cin>>nome;
+    this->nome = nome;
 }
 
-void Pessoa::adcIdade()
+void Pessoa::setIdade(int idade)
 {
-    cout<<"Digite Idade: ";
-    cin>>idade;
+    this->idade = idade;
 }
 
-void Pessoa::adcGenero()
+void Pessoa::setGenero(string genero)
 {
-    cout<<"Digite o Genero: ";
-    cin>>genero;    
+    this->genero = genero;   
 }
 
-void Pessoa::infNome()
+string Pessoa::getNome()
 {
-    cout<<"Nome: "<<nome<<"\n";  
+    return this->nome; 
 }
-void Pessoa::infIdade()
+int Pessoa::getIdade()
 {
-    cout<<"Idade: "<<idade<<"\n";      
+    return this->idade;
 }
-void Pessoa::infGenero()
+string Pessoa::getGenero()
 {
-    cout<<"Genero: "<<genero<<"\n";
+    return this->genero;
 }
 
 void Pessoa::listaNomes(int n, Pessoa *gente){
 cout<<"Lista de Nomes\n\n";
     int i;
     for(i=1;i<=n;i++){
-        cout<<" "<<i<<"-";
-        gente[i].infNome();
+        cout<<" "<<i<<"- "<<gente[i].getNome()<<"\n";
     }
 }
 
@@ -72,9 +71,9 @@ void Pessoa::pesquisarDados(int n, Pessoa *gente){
             }
             system("cls");
             cout<<"Dados: \n";
-            gente[i].infNome();
-            gente[i].infIdade();
-            gente[i].infGenero();
+            cout<<"Nome: "<<gente[i].getNome();
+            cout<<"\nIdade: "<<gente[i].getIdade();
+            cout<<"\nGenero: "<<gente[i].getGenero();
           
             cout<<"\nPesquisar novamente? s-sim, n-nao\n";
             cin>>resp;  

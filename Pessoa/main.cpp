@@ -7,7 +7,8 @@ using std::cout;
 
 int main()
 {   
-    string resp2;
+    string resp2, nome, genero;
+    int idade;
     Pessoa gente[MAX];
     int i=0;
     do{
@@ -15,9 +16,15 @@ int main()
         do{
             system("cls");            
             i+=1;
-            gente[i].adcNome();
-            gente[i].adcIdade();
-            gente[i].adcGenero();
+            cout<<"Digite o Nome: ";
+            cin>>nome;
+            gente[i].setNome(nome);
+            cout<<"Digite a Idade: ";
+            cin>>idade;
+            gente[i].setIdade(idade);
+            cout<<"Digite o Genero: ";
+            cin>>genero;
+            gente[i].setGenero(genero);
             cout<<"Novo? s-Sim, n-Nao\n";
             cin>>resp;
         } while(resp=="s");

@@ -6,12 +6,13 @@ using namespace std;
 class Pessoa
 {
 public:
-    void adcNome();
-    void adcIdade();
-    void adcGenero();
-    void infNome();
-    void infIdade();
-    void infGenero();
+    Pessoa(string,int,string);
+    void setNome(string nome);
+    void setIdade(int idade);
+    void setGenero(string genero);
+    string getNome();
+    int getIdade();
+    string getGenero();
     void listaNomes(int n, Pessoa *gente);
     void pesquisarDados(int n, Pessoa *gente);
     Pessoa();
