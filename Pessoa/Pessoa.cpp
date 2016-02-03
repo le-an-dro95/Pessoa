@@ -11,13 +11,21 @@ Pessoa::Pessoa()
     genero="";
 }
 
+Pessoa::Pessoa(const string &nome, int idade, const string &genero)
+{
+    this->nome = nome; 
+    this->idade = idade;
+    this->genero = genero;   
+}
+
 Pessoa::~Pessoa()
 {
 }
 
-void Pessoa::setNome(string nome)
+void Pessoa::setNome(const string &nome)
 {
     this->nome = nome;
+  
 }
 
 void Pessoa::setIdade(int idade)
@@ -25,7 +33,7 @@ void Pessoa::setIdade(int idade)
     this->idade = idade;
 }
 
-void Pessoa::setGenero(string genero)
+void Pessoa::setGenero(const string &genero)
 {
     this->genero = genero;   
 }
@@ -55,7 +63,7 @@ void Pessoa::pesquisarDados(int n, Pessoa *gente){
     string resp;
     do
     {
-        system("cls");
+      //  system("cls");
         int i;
         gente[i].listaNomes(n, gente); 
         cout<<"\nDigite o numero da pessoa que deseja visualizar os dados: ";
@@ -69,7 +77,7 @@ void Pessoa::pesquisarDados(int n, Pessoa *gente){
             {
                 i+=1;
             }
-            system("cls");
+          //  system("cls");
             cout<<"Dados: \n";
             cout<<"Nome: "<<gente[i].getNome();
             cout<<"\nIdade: "<<gente[i].getIdade();

@@ -5,17 +5,18 @@ using namespace std;
 
 class Pessoa
 {
-public:
-    Pessoa(string,int,string);
-    void setNome(string nome);
+public:    
+    Pessoa();
+    Pessoa(const string &,int,const string &);
+    void setNome(const string &nome);
     void setIdade(int idade);
-    void setGenero(string genero);
+    void setGenero(const string &genero);
     string getNome();
     int getIdade();
     string getGenero();
     void listaNomes(int n, Pessoa *gente);
     void pesquisarDados(int n, Pessoa *gente);
-    Pessoa();
+
     ~Pessoa();
     
 private:

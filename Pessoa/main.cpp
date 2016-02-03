@@ -14,7 +14,7 @@ int main()
     do{
         string resp;    
         do{
-            system("cls");            
+            //system("cls");            
             i+=1;
             cout<<"Digite o Nome: ";
             cin>>nome;
@@ -31,7 +31,7 @@ int main()
     int n=i;
     
     gente[i].pesquisarDados(n, gente);
-    system("cls");
+   // system("cls");
     cout<<"\nAdicionar nova pessoa? s-sim, n-nao\n";
     cin>>resp2;
     
