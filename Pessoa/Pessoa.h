@@ -7,7 +7,7 @@ class Pessoa
 {
 public:    
     Pessoa();
-    Pessoa(const string &,int,const string &);
+    Pessoa(const Pessoa &p);
     void setNome(const string &nome);
     void setIdade(int idade);
     void setGenero(const string &genero);
@@ -24,6 +24,7 @@ private:
     int idade;
     string genero; 
     
+    static int qtddeLivros;
 };
 
 #endif // PESSOA_H

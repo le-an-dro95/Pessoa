@@ -4,18 +4,22 @@
 
 using namespace std;
 
+int Pessoa::qtddeLivros = 5;
+
 Pessoa::Pessoa()
 {
     nome="";
     idade=0;
     genero="";
+    livro="";
 }
 
-Pessoa::Pessoa(const string &nome, int idade, const string &genero)
+Pessoa::Pessoa(const Pessoa &p)
 {
-    this->nome = nome; 
-    this->idade = idade;
-    this->genero = genero;   
+    this->nome = p.nome; 
+    this->idade = p.idade;
+    this->genero = p.genero;
+    this->livro = p.livro;
 }
 
 Pessoa::~Pessoa()
