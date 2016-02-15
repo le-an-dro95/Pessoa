@@ -1,0 +1,1 @@
+./Debug/Pessoa_main.cpp.o ./Debug/Pessoa_Pessoa.cpp.o   
