@@ -1,6 +1,7 @@
 #ifndef PESSOA_H
 #define PESSOA_H
 #include <string>
+#include "Data.h"
 const int i=0;
 using namespace std;
 
@@ -22,6 +23,8 @@ public:
     void pesquisarDados(int i, Pessoa *gente);
     void empLivros(int i, Pessoa *gente);
     void listarLivros(int qtd, string *livro);
+
+    static void atualizarNumeroLivros();
     ~Pessoa();
     
 private:
@@ -29,7 +32,11 @@ private:
     int idade;
     string genero; 
     string livro;
+    static int qtddelivros;
+    int data;
+    const Data DataNascimento;
     int i;
+    
     
     static int qtddeLivros;
 };

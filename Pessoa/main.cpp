@@ -2,6 +2,7 @@
 #include "Pessoa.h"
 #include <string>
 #include <conio.h>
+#include "Data.h";
 
 const int MAX=10;
 
@@ -36,6 +37,7 @@ int main()
                 cin>>genero;
                 gente[i].setGenero(genero);
                 cout<<"Novo? s-Sim, n-Nao\n";
+                
                 cin>>resp;
             } while(resp=="s");
             break;
@@ -74,6 +76,10 @@ int main()
                 }
                 }
                 break;
+            }
+            case 3:
+            {
+                gente[i].atualizarNumeroLivros();
             }
         }
     }while(1);    

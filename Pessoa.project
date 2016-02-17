@@ -94,5 +94,7 @@
     <File Name="Pessoa/main.cpp"/>
     <File Name="Pessoa/Pessoa.cpp"/>
     <File Name="Pessoa/Pessoa.h"/>
+    <File Name="Pessoa/Data.h"/>
+    <File Name="Pessoa/Data.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <conio.h>
+#include <data.h>
 
 
 using namespace std;
@@ -28,18 +29,25 @@ Pessoa::~Pessoa()
 {
 }
 
+void Pessoa::atualizarNumeroLivros()
+{
+    int qtdLivrosBib;
+    cout<<"Digite a quantidade de livros: ";
+    cint>>qtdLivrosBib;
+}
+
 void Pessoa::menu1()
 {   
     system("cls");
     cout<<"::Menu::\n";
     cout<<"1-Novo Cadastro\n";
     cout<<"2-Ja cadastrado\n";
+    cout<<"3-Alterar quantidade de livros da biblioteca: ";
 }
 
 void Pessoa::setNome(const string &nome)
 {
     this->nome = nome;
-  
 }
 
 void Pessoa::setIdade(int idade)
