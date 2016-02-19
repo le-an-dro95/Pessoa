@@ -3,30 +3,45 @@
 
 using namespace std;
 
-Data::Data(int dia,int mes,int ano)
+void Data::setDia(int dia)
 {
     this->dia = dia;
+}
+
+void Data::setMes(int mes)
+{
     this->mes = mes;
+}
+
+void Data::setAno(int ano)
+{
     this->ano = ano;
 }
 
-Data::~Data()
+int Data::getDia()
 {
+    return this->dia;
 }
 
-void Data::setData(int dia, int mes, int ano)
+int Data::getMes()
 {
-    dia = dia;//checarDia(dia);
-    mes = mes;
-    ano = ano;
+    return this->mes;
 }
-void Data::print() const
+
+int Data::getAno()
+{
+    return this->ano;
+}
+
+
+
+/*void Data::print() const
 {
     cout<<"\nData de Nascimento:";
     cout << ""<< dia << "/" << mes << "/" << ano;
 }
 
-/*int Data::checarDia(int dia) const
+int Data::checarDia(int dia) const
 {
     static const int diasPorMes[13] = {0, 31, 28, 31, 30, 30, 31, 31, 30, 31, 30, 31};
     

@@ -52,17 +52,7 @@ void Pessoa::menu1(Pessoa *gente)
     cout<<"2-Ja cadastrado\n";
     cout<<"3-SAIR\n\n";
     cout<<"Operacao: ";
-    
-    
-    //cout<<"3-Alterar quantidade de livros da biblioteca: ";
 }
-
-/*void Pessoa::atualizarNumeroLivros()
-{
-    int qtdLivrosBib;
-    cout<<"Digite a quantidade de livros: ";
-    cin>>qtdLivrosBib;
-}*/
 
 void Pessoa::setDataNascimento()
 {   
@@ -70,21 +60,20 @@ void Pessoa::setDataNascimento()
     cout<<"Data de Nascimento\n";
     cout<<"Dia: ";
     cin>>dia;
+    DataNascimento.setDia(dia);
     cout<<"Mes: ";
     cin>>mes;
+    DataNascimento.setMes(mes);
     cout<<"Ano: ";
     cin>>ano;
-    DataNascimento.setData(dia,mes,ano);
-    //Data DataNascimento(dia,mes,ano);
+    DataNascimento.setAno(ano);
 }
-
 
 void Pessoa::setNome(const string &nome)
 {
     this->nome = nome;
     qtdPessoas++;
 }
-
 
 
 void Pessoa::setIdade(int idade)
@@ -125,7 +114,8 @@ void Pessoa::pesquisarDados(int i, Pessoa *gente)
     cout<<"Dados: \n";
     cout<<"Nome: "<<gente[i].getNome();
     cout<<"\nIdade: "<<gente[i].getIdade();
-    DataNascimento.print();
+    cout<<"\nData de nascimento: "<<DataNascimento.getDia()<<"/"
+    <<DataNascimento.getMes()<<"/"<<DataNascimento.getAno();
     cout<<"\nGenero: "<<gente[i].getGenero();
     getch();
 }
