@@ -5,8 +5,8 @@
 ## Debug
 ProjectName            :=Pessoa
 ConfigurationName      :=Debug
-WorkspacePath          := "C:\Users\ledri\Desktop\prog2"
-ProjectPath            := "C:\Users\ledri\Desktop\prog2\Pessoa"
+WorkspacePath          := "C:\Users\ledri\Desktop\progII"
+ProjectPath            := "C:\Users\ledri\Desktop\progII\Pessoa"
 IntermediateDirectory  :=./Debug
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
@@ -94,7 +94,7 @@ PreBuild:
 ## Objects
 ##
 $(IntermediateDirectory)/Pessoa_main.cpp$(ObjectSuffix): Pessoa/main.cpp $(IntermediateDirectory)/Pessoa_main.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/ledri/Desktop/prog2/Pessoa/Pessoa/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Pessoa_main.cpp$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/ledri/Desktop/progII/Pessoa/Pessoa/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Pessoa_main.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/Pessoa_main.cpp$(DependSuffix): Pessoa/main.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Pessoa_main.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Pessoa_main.cpp$(DependSuffix) -MM "Pessoa/main.cpp"
 
@@ -102,7 +102,7 @@ $(IntermediateDirectory)/Pessoa_main.cpp$(PreprocessSuffix): Pessoa/main.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Pessoa_main.cpp$(PreprocessSuffix) "Pessoa/main.cpp"
 
 $(IntermediateDirectory)/Pessoa_Pessoa.cpp$(ObjectSuffix): Pessoa/Pessoa.cpp $(IntermediateDirectory)/Pessoa_Pessoa.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/ledri/Desktop/prog2/Pessoa/Pessoa/Pessoa.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Pessoa_Pessoa.cpp$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/ledri/Desktop/progII/Pessoa/Pessoa/Pessoa.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Pessoa_Pessoa.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/Pessoa_Pessoa.cpp$(DependSuffix): Pessoa/Pessoa.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Pessoa_Pessoa.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Pessoa_Pessoa.cpp$(DependSuffix) -MM "Pessoa/Pessoa.cpp"
 
@@ -110,7 +110,7 @@ $(IntermediateDirectory)/Pessoa_Pessoa.cpp$(PreprocessSuffix): Pessoa/Pessoa.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Pessoa_Pessoa.cpp$(PreprocessSuffix) "Pessoa/Pessoa.cpp"
 
 $(IntermediateDirectory)/Pessoa_Data.cpp$(ObjectSuffix): Pessoa/Data.cpp $(IntermediateDirectory)/Pessoa_Data.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/ledri/Desktop/prog2/Pessoa/Pessoa/Data.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Pessoa_Data.cpp$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/ledri/Desktop/progII/Pessoa/Pessoa/Data.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Pessoa_Data.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/Pessoa_Data.cpp$(DependSuffix): Pessoa/Data.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Pessoa_Data.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Pessoa_Data.cpp$(DependSuffix) -MM "Pessoa/Data.cpp"
 

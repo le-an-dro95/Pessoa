@@ -56,6 +56,7 @@ int main()
                 cout<<"4 - Lista de livros emprestado pelo usuario\n";
                 cout<<"5 - Menu Principal\n";
                 cout<<"\n";
+                resp2="n";
                 cin>>op1;
                 switch(op1)
                 {
@@ -92,14 +93,13 @@ int main()
                     &&(gente[i].getLivro3()=="Sem Livro")) 
                     {
                     cout<<"Usuario nao emprestou livro";
-                    getch();
                     }
                     else
                     {
                         int rem;
                         cout<<"::Devolucao::\n\n";
                         gente[i].listarLivros(i,gente);
-                        cout<<"Digite o numero do livro que deseja remover: ";
+                        cout<<"\n\nDigite o numero do livro que deseja remover: ";
                         cin>>rem;
                         switch(rem)
                         {
@@ -119,13 +119,15 @@ int main()
                             break;
                         }
                         }
-                    gente[i].listarLivros(i, gente);
-                    }
+                       gente[i].listarLivros(i, gente);
+                    }  
+                    getch(); 
                     break;
                 }
                 case 4:
                 {
                     gente[i].listarLivros(i, gente);
+                    getch();
                     break;
                 }
                 case 5:

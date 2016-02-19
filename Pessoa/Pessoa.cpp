@@ -142,7 +142,5 @@ void Pessoa::listarLivros(int i, Pessoa *gente)
     cout<<"1- "<<gente[i].getLivro1()<<"\n";
     cout<<"2- "<<gente[i].getLivro2()<<"\n";
     cout<<"3- "<<gente[i].getLivro3()<<"\n";
-    cout<<"";
-    getch();
 }
 
