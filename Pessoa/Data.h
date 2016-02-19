@@ -4,17 +4,18 @@
 class Data
 {
 public:
-    Data(int = 1, int = 1,int = 1900);
+    Data(int=0, int=0, int=0);
     void print() const;
-    Data();
     ~Data();
-private:
-    int mes;
+    void setData(int, int, int);
+private:   
     int dia;
+    int mes;
     int ano;
-    int checarDia( int ) const;
+   
 
-    
+    int checarDia(int) const;
+
 };
 
 #endif // DATA_H

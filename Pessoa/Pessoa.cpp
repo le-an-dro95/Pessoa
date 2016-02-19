@@ -2,16 +2,19 @@
 #include <iostream>
 #include <string>
 #include <conio.h>
+#include "Data.h"
 
 using namespace std;
 
-int Pessoa::qtddeLivros = 3;
+int Pessoa::qtdPessoas = 0;
+const int Pessoa::maxEmprestimo=3;
 
 Pessoa::Pessoa()
 {
     nome="";
     idade=0;
     genero="";
+    Data DataNascimento(int,int,int);
     livro1="";
     livro2="";
     livro3="";
@@ -30,15 +33,26 @@ Pessoa::Pessoa(const Pessoa &p)
 Pessoa::~Pessoa()
 {
 }
+int Pessoa::getQtdPessoas()
+{
+    return this->qtdPessoas;
+}
 
-void Pessoa::menu1()
+int Pessoa::getMaxEmprestimo()
+{
+    return this->maxEmprestimo;
+}
+
+void Pessoa::menu1(Pessoa *gente)
 {   
-    system("cls");
-    cout<<"::Menu::\n";
+    system("cls");   
+    cout<<"Quantidade de usuario cadastrado: "<<gente[i].getQtdPessoas()<<"\n\n";
+    cout<<"::::Menu::::\n\n";
     cout<<"1-Novo Cadastro\n";
     cout<<"2-Ja cadastrado\n";
-    cout<<"3-SAIR";
-    cout<<" \n";
+    cout<<"3-SAIR\n\n";
+    cout<<"Operacao: ";
+    
     
     //cout<<"3-Alterar quantidade de livros da biblioteca: ";
 }
@@ -50,12 +64,28 @@ void Pessoa::menu1()
     cin>>qtdLivrosBib;
 }*/
 
+void Pessoa::setDataNascimento()
+{   
+    int dia, mes, ano;
+    cout<<"Data de Nascimento\n";
+    cout<<"Dia: ";
+    cin>>dia;
+    cout<<"Mes: ";
+    cin>>mes;
+    cout<<"Ano: ";
+    cin>>ano;
+    DataNascimento.setData(dia,mes,ano);
+    //Data DataNascimento(dia,mes,ano);
+}
 
 
 void Pessoa::setNome(const string &nome)
 {
     this->nome = nome;
+    qtdPessoas++;
 }
+
+
 
 void Pessoa::setIdade(int idade)
 {
@@ -69,7 +99,7 @@ void Pessoa::setGenero(const string &genero)
 
 string Pessoa::getNome()
 {
-    return this->nome; 
+    return this->nome;
 }
 int Pessoa::getIdade()
 {
@@ -95,6 +125,7 @@ void Pessoa::pesquisarDados(int i, Pessoa *gente)
     cout<<"Dados: \n";
     cout<<"Nome: "<<gente[i].getNome();
     cout<<"\nIdade: "<<gente[i].getIdade();
+    DataNascimento.print();
     cout<<"\nGenero: "<<gente[i].getGenero();
     getch();
 }
@@ -128,12 +159,6 @@ string Pessoa::getLivro3()
 {
     return this->livro3; 
 }
-
-/*void Pessoa::empLivros(int i, Pessoa *gente)
-{
-    
-}
-*/
 
 void Pessoa::listarLivros(int i, Pessoa *gente)
 {   

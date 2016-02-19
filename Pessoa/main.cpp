@@ -2,7 +2,6 @@
 #include "Pessoa.h"
 #include <string>
 #include <conio.h>
-#include "Data.h";
 
 const int MAX=10;
 
@@ -16,22 +15,23 @@ int main()
     Pessoa gente[MAX];
     int i=0;  
     do{
-    gente[i].menu1();
+    gente[i].menu1(gente);
     cin>>op;
         switch(op)
         {
         case 1:
-        {
+        {   
             system("cls");            
             i+=1;    
             n=i;
-            cout<<"Digite o Nome: ";
+            cout<<"Nome: ";
             cin>>nome;
             gente[i].setNome(nome);
-            cout<<"Digite a Idade: ";
+            cout<<"Idade: ";
             cin>>idade;
             gente[i].setIdade(idade);
-            cout<<"Digite o Genero: ";
+            gente[i].setDataNascimento();
+            cout<<"Genero: ";
             cin>>genero;
             gente[i].setGenero(genero);
             cout<<"\n\nNumero de Registro: "<<i;
@@ -68,19 +68,20 @@ int main()
                 case 2: 
                 {   
                     system("cls");
+                    cout<<"Quantidade Maxima de emprestimo: "<<gente[i].getMaxEmprestimo()<<"\n\n";
                     string livro1,livro2,livro3;
                     if(gente[i].getLivro1()=="Sem Livro"){
-                    cout<<"Digite o nome do livro 1:";
+                    cout<<"Digite o nome do livro 1: ";
                     cin>>livro1;
                     gente[i].setLivro1(livro1);
                     break;}
                     if(gente[i].getLivro2()=="Sem Livro"){
-                    cout<<"Digite o nome do livro 2:";
+                    cout<<"Digite o nome do livro 2: ";
                     cin>>livro2;
                     gente[i].setLivro2(livro2);
                     break;}
                     if(gente[i].getLivro3()=="Sem Livro"){
-                    cout<<"Digite o nome do livro 3:";
+                    cout<<"Digite o nome do livro 3: ";
                     cin>>livro3;
                     gente[i].setLivro3(livro3);
                     break;}
