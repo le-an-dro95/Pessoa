@@ -2,8 +2,6 @@
 #include <iostream>
 #include <string>
 #include <conio.h>
-#include <data.h>
-
 
 using namespace std;
 
@@ -14,7 +12,9 @@ Pessoa::Pessoa()
     nome="";
     idade=0;
     genero="";
-    livro="";
+    livro1="";
+    livro2="";
+    livro3="";
 }
 
 Pessoa::Pessoa(const Pessoa &p)
@@ -22,18 +22,13 @@ Pessoa::Pessoa(const Pessoa &p)
     this->nome = p.nome; 
     this->idade = p.idade;
     this->genero = p.genero;
-    this->livro = p.livro;
+    this->livro1 = p.livro1;
+    this->livro2 = p.livro2;
+    this->livro3 = p.livro3;
 }
 
 Pessoa::~Pessoa()
 {
-}
-
-void Pessoa::atualizarNumeroLivros()
-{
-    int qtdLivrosBib;
-    cout<<"Digite a quantidade de livros: ";
-    cint>>qtdLivrosBib;
 }
 
 void Pessoa::menu1()
@@ -42,8 +37,20 @@ void Pessoa::menu1()
     cout<<"::Menu::\n";
     cout<<"1-Novo Cadastro\n";
     cout<<"2-Ja cadastrado\n";
-    cout<<"3-Alterar quantidade de livros da biblioteca: ";
+    cout<<"3-SAIR";
+    cout<<" \n";
+    
+    //cout<<"3-Alterar quantidade de livros da biblioteca: ";
 }
+
+/*void Pessoa::atualizarNumeroLivros()
+{
+    int qtdLivrosBib;
+    cout<<"Digite a quantidade de livros: ";
+    cin>>qtdLivrosBib;
+}*/
+
+
 
 void Pessoa::setNome(const string &nome)
 {
@@ -59,7 +66,6 @@ void Pessoa::setGenero(const string &genero)
 {
     this->genero = genero;   
 }
-
 
 string Pessoa::getNome()
 {
@@ -93,50 +99,50 @@ void Pessoa::pesquisarDados(int i, Pessoa *gente)
     getch();
 }
 
-void Pessoa::empLivros(int i, Pessoa *gente)
+void Pessoa::setLivro1(string livro1)
 {
-    string resp;
-    int qtd=0;   
-    string nomeLivro[3];
-    cout<<"Usuario Numero: "<<i<<"\n";
-    do{
-    if (qtd>qtddeLivros) cout<<"Erro: Numero maximo de livros atingido";
-    else{
-    qtd+=1;
-    cout<<"Digite o nome do Livro: ";
-    cin>>nomeLivro[qtd];
-    cout<<"Emprestar outro livro? s-sim";
-    cin>>resp;
-    } 
-    system("cls");
-    int j;
-    for (j=1;j<qtd+1;j++){
-        cout<<""<<j<<"-"<<nomeLivro[j]<<"\n";
-    }
-    }while(resp=="s");
+    this->livro1 = livro1;
 }
 
-void Pessoa::listarLivros(int qtd, string *livro)
-{   
-    cout<<"Livros ja emprestados pelo usuario\n";
-    for(j=1;j<qtd+1;j++){
-        cout<<""<<j<<"-"<<nomeLivro[j]<<"\n";
-    }
-    getch();
-}
-vois Pessoa::devLivro(int i, Pessoa *gente)
+void Pessoa::setLivro2(string livro2)
 {
-    listarLivros(qtd, livro);
+    this->livro2 = livro2;
+}
+
+void Pessoa::setLivro3(string livro3)
+{
+    this->livro3 = livro3;
+}
+
+string Pessoa::getLivro1()
+{
+    return this->livro1; 
+}
+
+string Pessoa::getLivro2()
+{
+    return this->livro2; 
+}
+
+string Pessoa::getLivro3()
+{
+    return this->livro3; 
+}
+
+/*void Pessoa::empLivros(int i, Pessoa *gente)
+{
     
 }
+*/
 
-void Pessoa::setLivro(int qtd, string *livro)
+void Pessoa::listarLivros(int i, Pessoa *gente)
 {   
-    this->livro=*livro;
-}
-
-string Pessoa::getLivro()
-{
-    return this->livro;
+    system("cls");
+    cout<<"Livros ja emprestados pelo usuario\n\n";
+    cout<<"1- "<<gente[i].getLivro1()<<"\n";
+    cout<<"2- "<<gente[i].getLivro2()<<"\n";
+    cout<<"3- "<<gente[i].getLivro3()<<"\n";
+    cout<<"";
+    getch();
 }
 

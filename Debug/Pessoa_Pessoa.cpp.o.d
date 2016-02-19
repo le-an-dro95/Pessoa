@@ -1,6 +1,3 @@
-Debug/Pessoa_Pessoa.cpp.o: Pessoa/Pessoa.cpp Pessoa/Pessoa.h \
- Pessoa/Data.h
+Debug/Pessoa_Pessoa.cpp.o: Pessoa/Pessoa.cpp Pessoa/Pessoa.h
 
 Pessoa/Pessoa.h:
-
-Pessoa/Data.h:

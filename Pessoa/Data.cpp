@@ -1,5 +1,8 @@
-#include "Data.h"
 #include <iostream>
+#include "Data.h"
+
+using namespace std;
+
 
 Data::Data()
 {
