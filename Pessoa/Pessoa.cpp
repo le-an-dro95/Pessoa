@@ -56,17 +56,18 @@ void Pessoa::menu1(Pessoa *gente)
 
 void Pessoa::setDataNascimento()
 {   
-    int dia, mes, ano;
-    cout<<"Data de Nascimento\n";
+    
+    int dia, mes, ano, test;
+    do{
+    cout<<"Data de Nascimento\n";   
     cout<<"Dia: ";
     cin>>dia;
-    DataNascimento.setDia(dia);
     cout<<"Mes: ";
     cin>>mes;
-    DataNascimento.setMes(mes);
     cout<<"Ano: ";
     cin>>ano;
-    DataNascimento.setAno(ano);
+    DataNascimento.setData(dia, mes, ano);
+    }while(DataNascimento.getDia() == -9999);
 }
 
 void Pessoa::setNome(const string &nome)

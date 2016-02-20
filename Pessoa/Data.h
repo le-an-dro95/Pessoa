@@ -4,20 +4,22 @@
 class Data
 {
 public:
-    
-    void setDia(int dia);
+    Data();
+    void setData(int dia, int mes, int ano);
     void setMes(int mes);
     void setAno(int ano);
     int getDia();
     int getMes();
-    int getAno();
+    int getAno();   
+ 
 private:   
     int dia;
     int mes;
     int ano;
-   
-
+    
     int checarDia(int) const;
+
+ 
 
 };
 
