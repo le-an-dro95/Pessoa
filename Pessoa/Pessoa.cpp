@@ -10,13 +10,31 @@ using namespace std;
 int Pessoa::qtdPessoas = 0;
 const int Pessoa::maxEmprestimo=3;
 
+Pessoa::removerLivro(const string &livro)
+{
+    string *aux = new string[qtdlivros];
+    for(int i=qtdlivros;i==0;i--)
+        aux[i]=livroNomes[i];
+    
+    delete [] livroNomes;
+    
+    livroNomes = new string[--qtdlivros];
+    
+    for (int i=qtdLivros;i=0;i--)
+        livroNomes[i] = aux[i];
+        
+    livroNomes[quatLivros+1] = livro;
+    
+    delete [] aux;
+} //falta melhorar;
+
 Pessoa::Pessoa()
 {
     nome="";
     idade=0;
     genero="";
-    Data DataNascimento(int,int,int);
-    Endereco DadosEndereco(string,int,string,string,string);
+    Data DataNascimento(int,int,int); //slide 59
+    Endereco DadosEndereco(string,int,string,string,string); //slide 59
     livro1="";
     livro2="";
     livro3="";
