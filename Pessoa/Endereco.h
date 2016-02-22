@@ -7,6 +7,9 @@ using namespace std;
 class Endereco
 {
 public:
+    
+    Endereco();
+    ~Endereco();
     void setEndereco(string rua, int n, string bairro, string cidade, string estado);
     void getEndereco();
     

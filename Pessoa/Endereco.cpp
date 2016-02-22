@@ -4,7 +4,12 @@
 
 using namespace std;
 
-
+Endereco::Endereco()
+{
+}
+Endereco::~Endereco()
+{
+}
 void Endereco::setEndereco(string rua, int n, string bairro, string cidade, string estado)
 {
     this->rua = rua;
@@ -13,7 +18,6 @@ void Endereco::setEndereco(string rua, int n, string bairro, string cidade, stri
     this->cidade = cidade;
     this->estado = estado;
 }
-
 void Endereco::getEndereco()
 {
     cout<<"\nEndereco: \n";

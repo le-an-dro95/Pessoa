@@ -3,7 +3,14 @@
 
 using namespace std;
 
-Data::Data()
+Data::Data(int dia, int mes, int ano)
+{
+    dia = dia;
+    mes = mes;
+    ano = ano;
+}
+
+Data::~Data()
 {
 }
 

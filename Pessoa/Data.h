@@ -4,7 +4,8 @@
 class Data
 {
 public:
-    Data();
+    Data(int = 17, int = 2, int = 2016);
+    ~Data();
     void setData(int dia, int mes, int ano);
     void setMes(int mes);
     void setAno(int ano);
