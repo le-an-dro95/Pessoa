@@ -2,6 +2,7 @@
 #define PESSOA_H
 #include <string>
 #include "Data.h"
+#include "Endereco.h"
 const int i=0;
 using namespace std;
 
@@ -29,7 +30,7 @@ public:
     int getQtdPessoas();
     int getMaxEmprestimo();
     void setDataNascimento();
-
+    void setDadosEndereco();
     static void atualizarNumeroLivros();
     ~Pessoa();
     
@@ -44,6 +45,7 @@ private:
     const static int maxEmprestimo;
     Data DataNascimento;
     int i;
+    Endereco DadosEndereco;
     
     
     static int qtddeLivros;

@@ -18,9 +18,6 @@ private:
     int ano;
     
     int checarDia(int) const;
-
- 
-
 };
 
 #endif // DATA_H

@@ -2,10 +2,11 @@
 #include "Pessoa.h"
 #include <string>
 #include <conio.h>
+#include <stdio.h>
 
 const int MAX=10;
 
-using std::cout;
+using namespace std;
 
 int main()
 {   
@@ -34,6 +35,7 @@ int main()
             cout<<"Genero: ";
             cin>>genero;
             gente[i].setGenero(genero);
+            gente[i].setDadosEndereco();
             cout<<"\n\nNumero de Registro: "<<i;
             gente[i].setLivro1("Sem Livro");
             gente[i].setLivro2("Sem Livro");

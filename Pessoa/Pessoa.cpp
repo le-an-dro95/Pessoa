@@ -3,6 +3,7 @@
 #include <string>
 #include <conio.h>
 #include "Data.h"
+#include "Endereco.h"
 
 using namespace std;
 
@@ -15,6 +16,7 @@ Pessoa::Pessoa()
     idade=0;
     genero="";
     Data DataNascimento(int,int,int);
+    Endereco DadosEndereco(string,int,string,string,string);
     livro1="";
     livro2="";
     livro3="";
@@ -54,10 +56,26 @@ void Pessoa::menu1(Pessoa *gente)
     cout<<"Operacao: ";
 }
 
+void Pessoa::setDadosEndereco()
+{   
+    string rua, bairro, cidade, estado;
+    int n;
+    cout<<"Rua: ";
+    cin>>rua;
+    cout<<"Numero: ";
+    cin>>n;
+    cout<<"Bairro: ";
+    cin>>bairro;
+    cout<<"Cidade: ";
+    cin>>cidade;
+    cout<<"Estado: ";
+    cin>>estado;
+    DadosEndereco.setEndereco(rua,n,bairro,cidade,estado);
+}
+
 void Pessoa::setDataNascimento()
 {   
-    
-    int dia, mes, ano, test;
+    int dia, mes, ano;
     do{
     cout<<"Data de Nascimento\n";   
     cout<<"Dia: ";
@@ -118,6 +136,7 @@ void Pessoa::pesquisarDados(int i, Pessoa *gente)
     cout<<"\nData de nascimento: "<<DataNascimento.getDia()<<"/"
     <<DataNascimento.getMes()<<"/"<<DataNascimento.getAno();
     cout<<"\nGenero: "<<gente[i].getGenero();
+    DadosEndereco.getEndereco();
     getch();
 }
 
