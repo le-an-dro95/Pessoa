@@ -9,7 +9,8 @@ using namespace std;
 class Pessoa
 {
 public:    
-    Pessoa();
+    Pessoa(const string &, const int &, const string &, const Data &,const Endereco &, 
+            const string &, const string &, const string &livro3);
     Pessoa(const Pessoa &p);   
     int maisPessoas();
     void menu1(Pessoa *gente);
@@ -44,9 +45,9 @@ private:
     string livro3;
     static int qtdPessoas;
     const static int maxEmprestimo;
-    Data DataNascimento;
+    Data dataNascimento;
     int i;
-    Endereco DadosEndereco;
+    Endereco dadosEndereco;
     
     
     static int qtddeLivros;

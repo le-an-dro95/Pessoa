@@ -11,6 +11,7 @@ int Pessoa::qtdPessoas = 0;
 const int Pessoa::maxEmprestimo=3;
 
 //Falta Melhorar
+
 Pessoa::AdcPessoa(int n, Pessoa *gente, string nome)
 {
     listaNomes(n, *gente);
@@ -27,24 +28,28 @@ Pessoa::AdcPessoa(int n, Pessoa *gente, string nome)
     gente[i-1] = nome;
     
     delete [] aux;  
-}//Falta Melhorar
+}
 
-Pessoa::Pessoa()
+//Falta Melhorar
+ 
+Pessoa::Pessoa(const string &nome, const int &idade, const string &genero, const Data &dataNascimento,
+        const Endereco &dadosEndereco, const string &livro1, const string &livro2, const string &livro3)
 {
-    nome="";
-    idade=0;
-    genero="";
-    Data DataNascimento(int,int,int); //slide 59
-    Endereco DadosEndereco(string,int,string,string,string); //slide 59
-    livro1="";
-    livro2="";
-    livro3="";
+    this -> nome= nome;
+    this -> idade= idade;
+    this -> genero= genero;
+    this -> dataNascimento= dataNascimento;
+    this -> dadosEndereco= dadosEndereco;
+    this -> livro1= livro1;
+    this -> livro2= livro2;
+    this -> livro3= livro3;
 }
 
 Pessoa::Pessoa(const Pessoa &p)
 {
     this->nome = p.nome; 
     this->idade = p.idade;
+    this->dataNascimento=p.dataNascimento;
     this->genero = p.genero;
     this->livro1 = p.livro1;
     this->livro2 = p.livro2;
@@ -89,7 +94,7 @@ void Pessoa::setDadosEndereco()
     cin>>cidade;
     cout<<"Estado: ";
     cin>>estado;
-    DadosEndereco.setEndereco(rua,n,bairro,cidade,estado);
+    dadosEndereco.setEndereco(rua,n,bairro,cidade,estado);
 }
 
 void Pessoa::setDataNascimento()
@@ -103,8 +108,8 @@ void Pessoa::setDataNascimento()
     cin>>mes;
     cout<<"Ano: ";
     cin>>ano;
-    DataNascimento.setData(dia, mes, ano);
-    }while(DataNascimento.getDia() == -9999);
+    dataNascimento.setData(dia, mes, ano);
+    }while(dataNascimento.getDia() == -9999);
 }
 
 void Pessoa::setNome(const string &nome)
@@ -152,10 +157,10 @@ void Pessoa::pesquisarDados(int i, Pessoa *gente)
     cout<<"Dados: \n";
     cout<<"Nome: "<<gente[i].getNome();
     cout<<"\nIdade: "<<gente[i].getIdade();
-    cout<<"\nData de nascimento: "<<DataNascimento.getDia()<<"/"
-    <<DataNascimento.getMes()<<"/"<<DataNascimento.getAno();
+    cout<<"\nData de nascimento: "<<dataNascimento.getDia()<<"/"
+    <<dataNascimento.getMes()<<"/"<<dataNascimento.getAno();
     cout<<"\nGenero: "<<gente[i].getGenero();
-    DadosEndereco.getEndereco();
+    dadosEndereco.getEndereco();
     getch();
 }
 

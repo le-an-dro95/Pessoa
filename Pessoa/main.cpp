@@ -3,6 +3,8 @@
 #include <string>
 #include <conio.h>
 #include <stdio.h>
+#include "Data.h"
+#include "Endereco.h"
 
 const int MAX=10;
 
@@ -10,9 +12,12 @@ using namespace std;
 
 int main()
 {   
+    Data dataNascimento(25,10,1995);
+    Endereco dadosEndereco("rua", 0, "bairro", "cidade", "estado");
+    
     string resp1, resp2, nome, genero;
     int n, op, op1, idade;
-    Pessoa gente[MAX];
+    Pessoa gente[MAX]("Leandro", 0,"Masculino", dataNascimento, dadosEndereco, "livro1", "livro2", "livro3");
     int i=0;  
     do{
     gente[i].menu1(gente);
