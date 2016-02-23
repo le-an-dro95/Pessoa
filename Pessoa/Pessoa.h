@@ -11,6 +11,7 @@ class Pessoa
 public:    
     Pessoa();
     Pessoa(const Pessoa &p);   
+    int maisPessoas();
     void menu1(Pessoa *gente);
     void setNome(const string &nome);
     void setIdade(int idade);

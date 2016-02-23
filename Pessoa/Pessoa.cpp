@@ -10,23 +10,24 @@ using namespace std;
 int Pessoa::qtdPessoas = 0;
 const int Pessoa::maxEmprestimo=3;
 
-Pessoa::removerLivro(const string &livro)
+//Falta Melhorar
+Pessoa::AdcPessoa(int n, Pessoa *gente, string nome)
 {
-    string *aux = new string[qtdlivros];
-    for(int i=qtdlivros;i==0;i--)
-        aux[i]=livroNomes[i];
+    listaNomes(n, *gente);
+    Pessoa *aux = new gente[i];
     
-    delete [] livroNomes;
+    for(int j=0;j<i,j++)
+        aux[i] = gente[i];
     
-    livroNomes = new string[--qtdlivros];
+    delete [] gente;
     
-    for (int i=qtdLivros;i=0;i--)
-        livroNomes[i] = aux[i];
+    for(int j=0;j<i-1;j++)
+        gente[i] = aux[i];
         
-    livroNomes[quatLivros+1] = livro;
+    gente[i-1] = nome;
     
-    delete [] aux;
-} //falta melhorar;
+    delete [] aux;  
+}//Falta Melhorar
 
 Pessoa::Pessoa()
 {

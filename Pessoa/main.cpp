@@ -12,7 +12,6 @@ int main()
 {   
     string resp1, resp2, nome, genero;
     int n, op, op1, idade;
-    string livro[3];
     Pessoa gente[MAX];
     int i=0;  
     do{
