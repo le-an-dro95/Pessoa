@@ -10,6 +10,7 @@ public:
     
     Endereco(const string &, const int &, const string &, const string &, const string &);
     ~Endereco();
+    setEndereco(const string &rua, const int &n, const string &bairro, const string &cidade, const string &estado);
     void getEndereco();
     
 private:

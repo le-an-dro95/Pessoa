@@ -3,14 +3,14 @@
 #include <string>
 #include "Data.h"
 #include "Endereco.h"
+
 const int i=0;
 using namespace std;
 
 class Pessoa
 {
 public:    
-    Pessoa(const string &, const int &, const string &, const Data &,const Endereco &, 
-            const string &, const string &, const string &livro3);
+    Pessoa();
     Pessoa(const Pessoa &p);   
     int maisPessoas();
     void menu1(Pessoa *gente);
@@ -21,8 +21,8 @@ public:
     int getIdade();
     string getGenero();
     void listaNomes(int n, Pessoa *gente);
-    void pesquisarDados(int i, Pessoa *gente);
-    void listarLivros(int i, Pessoa *gente);
+    void pesquisarDados(int indexPessoa, Pessoa *gente);
+    void listarLivros(int indexPessoa, Pessoa *gente);
     void setLivro1(string livro1);
     void setLivro2(string livro2);
     void setLivro3(string livro3);
@@ -34,7 +34,8 @@ public:
     void setDataNascimento();
     void setDadosEndereco();
     static void atualizarNumeroLivros();
-    ostream & operator<<(ostream & o, const Data & d);
+    void novaPessoa(int indexPessoa, Pessoa *gente);
+    //ostream & operator<<(ostream & o, const Data & d);
     
     ~Pessoa();
     

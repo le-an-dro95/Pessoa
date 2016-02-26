@@ -14,16 +14,11 @@ using namespace std;
 
 int main()
 {   
-    Data dataNascimento(25,10,1995);
-    Endereco dadosEndereco("rua", 0, "bairro", "cidade", "estado");
-    
     string resp1, resp2, nome, genero;
     int n, op, op1, idade;
-    Pessoa *gente;
-    int max=5;
+    Pessoa gente[MAX];
+
     int indexPessoa=0;
-    
-    gente = new Pessoa[max];
       
     do{
     gente[indexPessoa].menu1(gente);
@@ -33,8 +28,8 @@ int main()
         case 1:
         {   
             system("cls");            
-            adcPessoa;    
-            n=i;
+            indexPessoa+=1;
+            n=indexPessoa;
             cout<<"Nome: ";
             cin>>nome;
             gente[indexPessoa].setNome(nome);
@@ -46,7 +41,7 @@ int main()
             cin>>genero;
             gente[indexPessoa].setGenero(genero);
             gente[indexPessoa].setDadosEndereco();
-            cout<<"\n\nNumero de Registro: "<<i;
+            cout<<"\n\nNumero de Registro: "<<indexPessoa;
             gente[indexPessoa].setLivro1("Sem Livro");
             gente[indexPessoa].setLivro2("Sem Livro");
             gente[indexPessoa].setLivro3("Sem Livro");
@@ -55,7 +50,7 @@ int main()
         }
         case 2:
         {
-            gente[indexPessoa].listaNomes(n ,gente);
+            gente[indexPessoa].listaNomes(n, gente);
             cout<<"\nDigite o numero de Registro: ";
             cin>>indexPessoa;
             do{
@@ -90,7 +85,7 @@ int main()
                     if(gente[indexPessoa].getLivro2()=="Sem Livro"){
                     cout<<"Digite o nome do livro 2: ";
                     cin>>livro2;
-                    gente[i].setLivro2(livro2);
+                    gente[indexPessoa].setLivro2(livro2);
                     break;}
                     if(gente[indexPessoa].getLivro3()=="Sem Livro"){
                     cout<<"Digite o nome do livro 3: ";
@@ -102,7 +97,7 @@ int main()
                 case 3: 
                 {   
                     system("cls");
-                    if ((gente[indexPessoa].getLivro1()=="Sem Livro")&&(gente[i].getLivro2()=="Sem Livro")
+                    if ((gente[indexPessoa].getLivro1()=="Sem Livro")&&(gente[indexPessoa].getLivro2()=="Sem Livro")
                     &&(gente[indexPessoa].getLivro3()=="Sem Livro")) 
                     {
                     cout<<"Usuario nao emprestou livro";

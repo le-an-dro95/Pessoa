@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Endereco(const string &rua, const int &n, const string &bairro, const string &cidade, const string &estado)
+Endereco::Endereco(const string &rua, const int &n, const string &bairro, const string &cidade, const string &estado)
 {
     this->rua = rua;
     this->n = n;
@@ -12,6 +12,17 @@ Endereco(const string &rua, const int &n, const string &bairro, const string &ci
     this->cidade = cidade;
     this->estado = estado;
 }
+
+Endereco::setEndereco(const string &rua, const int &n, const string &bairro, const string &cidade, const string &estado)
+{
+    this->rua = rua;
+    this->n = n;
+    this->bairro = bairro;
+    this->cidade = cidade;
+    this->estado = estado;
+}
+
+
 Endereco::~Endereco()
 {
 }

@@ -5,9 +5,16 @@ using namespace std;
 
 Data::Data(int dia, int mes, int ano)
 {
-    dia = dia;
-    mes = mes;
-    ano = ano;
+    this->mes = mes;
+    this->ano = ano;     
+    this->dia = checarDia(dia);
+}
+
+Data::Data(const Data &novaData)
+{
+    this->mes = novaData.mes;
+    this->ano = novaData.ano;
+    this->dia = novaData.dia;
 }
 
 Data::~Data()

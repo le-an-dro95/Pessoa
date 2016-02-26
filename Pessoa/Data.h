@@ -4,14 +4,16 @@
 class Data
 {
 public:
-    Data(int = 17, int = 2, int = 2016);
+    Data(int=01, int=01, int=1900);
+    Data(const Data &novaData);
     ~Data();
-    void setData(int dia, int mes, int ano);
-    void setMes(int mes);
-    void setAno(int ano);
+    
+    void printData () const;
+    void setData(int, int, int);
     int getDia();
     int getMes();
-    int getAno();   
+    int getAno();
+  
  
 private:   
     int dia;

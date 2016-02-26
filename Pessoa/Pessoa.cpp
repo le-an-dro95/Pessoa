@@ -11,6 +11,7 @@ int Pessoa::qtdPessoas = 0;
 const int Pessoa::maxEmprestimo=3;
 
 //operador mostrar na tela a data;
+
 ostream & operator<<(ostream & o, const Data & d)
 {
 o << d.dia << '/' << d.mes << '/' << d.ano;
@@ -35,16 +36,15 @@ const Pessoa& Pesssoa::operator=(const Pessoa &gente)
     maxEmp = gente[i].getMaxEmprestimo();
 }
 
-//Falta Melhorar
-Pessoa::novaPessoa(int indexPessoa, Pessoa *gente)
+void Pessoa::novaPessoa(string nome)
 {
-    listaNomes(indexPessoa, *gente);
+    listaNomes(indexPessoa, gente);
     
     if(indexPessoa != 0)
     {
     Pessoa *aux = new Pessoa[indexPessoa];
     
-    for(int i=0;i<indexPessoa-1,i++)
+    for(int i=0;i<indexPessoa-1;i++)
         aux[i] = gente[i];
     
     delete [] gente;
@@ -55,38 +55,33 @@ Pessoa::novaPessoa(int indexPessoa, Pessoa *gente)
         
     gente[indexPessoa-1]= gente;
     
-    delete [] aux;  
-    }    
-    else
+    delete [] aux;
+    }
+     else
     {
-        this->gente = new float[++this->quantidadeRecompensas];
+        this->gente = new Pessoa[++indexPessoa];
         this->gente[1] = gente;
     }
 }
-//Falta Melhorar
-
 Pessoa::~Pessoa()
 {
     delete [] gente;
 }
 
-Pessoa::Pessoa(const string &nome, const int &idade, const string &genero, const Data &dataNascimento, const Endereco &dadosEndereco, const string &livro1, const string &livro2, const string &livro3)
+Pessoa::Pessoa():dataNascimento(01,01,1900), dadosEndereco("Rua",0,"bairro","cidade","estado")
 {
-    this -> nome= nome;
-    this -> idade= idade;
-    this -> genero= genero;
-    this -> dataNascimento= dataNascimento;
-    this -> dadosEndereco= dadosEndereco;
-    this -> livro1= livro1;
-    this -> livro2= livro2;
-    this -> livro3= livro3;
+    this -> nome= "nome";
+    this -> idade= 0;
+    this -> genero= "genero";
+    this -> livro1= "livro1";
+    this -> livro2= "livro2";
+    this -> livro3= "livro3";
 }
 
-Pessoa::Pessoa(const Pessoa &p)
+Pessoa::Pessoa(const Pessoa &p):dataNascimento(p.dataNascimento), dadosEndereco(p.dadosEndereco)
 {
     this->nome = p.nome; 
     this->idade = p.idade;
-    this->dataNascimento=p.dataNascimento;
     this->genero = p.genero;
     this->livro1 = p.livro1;
     this->livro2 = p.livro2;
@@ -106,7 +101,7 @@ int Pessoa::getMaxEmprestimo()
 void Pessoa::menu1(Pessoa *gente)
 {   
     system("cls");   
-    cout<<"Quantidade de usuario cadastrado: "<<gente[i].getQtdPessoas()<<"\n\n";
+    cout<<"Quantidade de usuario cadastrado: "<<gente[indexPessoa].getQtdPessoas()<<"\n\n";
     cout<<"::::Menu::::\n\n";
     cout<<"1-Novo Cadastro\n";
     cout<<"2-Ja cadastrado\n";
@@ -185,15 +180,15 @@ void Pessoa::listaNomes(int n, Pessoa *gente){
     }
 }
 
-void Pessoa::pesquisarDados(int i, Pessoa *gente)
+void Pessoa::pesquisarDados(int indexPessoa, Pessoa *gente)
 {   
     system("cls");
     cout<<"Dados: \n";
-    cout<<"Nome: "<<gente[i].getNome();
-    cout<<"\nIdade: "<<gente[i].getIdade();
+    cout<<"Nome: "<<gente[indexPessoa].getNome();
+    cout<<"\nIdade: "<<gente[indexPessoa].getIdade();
     cout<<"\nData de nascimento: "<<dataNascimento.getDia()<<"/"
     <<dataNascimento.getMes()<<"/"<<dataNascimento.getAno();
-    cout<<"\nGenero: "<<gente[i].getGenero();
+    cout<<"\nGenero: "<<gente[indexPessoa].getGenero();
     dadosEndereco.getEndereco();
     getch();
 }
@@ -228,12 +223,12 @@ string Pessoa::getLivro3()
     return this->livro3; 
 }
 
-void Pessoa::listarLivros(int i, Pessoa *gente)
+void Pessoa::listarLivros(int indexPessoa, Pessoa *gente)
 {   
     system("cls");
     cout<<"Livros ja emprestados pelo usuario\n\n";
-    cout<<"1- "<<gente[i].getLivro1()<<"\n";
-    cout<<"2- "<<gente[i].getLivro2()<<"\n";
-    cout<<"3- "<<gente[i].getLivro3()<<"\n";
+    cout<<"1- "<<gente[indexPessoa].getLivro1()<<"\n";
+    cout<<"2- "<<gente[indexPessoa].getLivro2()<<"\n";
+    cout<<"3- "<<gente[indexPessoa].getLivro3()<<"\n";
 }
 
