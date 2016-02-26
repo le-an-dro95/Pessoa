@@ -10,6 +10,8 @@ const int MAX=10;
 
 using namespace std;
 
+//pessoas[i]->
+
 int main()
 {   
     Data dataNascimento(25,10,1995);
@@ -17,45 +19,49 @@ int main()
     
     string resp1, resp2, nome, genero;
     int n, op, op1, idade;
-    Pessoa gente[MAX]("Leandro", 0,"Masculino", dataNascimento, dadosEndereco, "livro1", "livro2", "livro3");
-    int i=0;  
+    Pessoa *gente;
+    int max=5;
+    int indexPessoa=0;
+    
+    gente = new Pessoa[max];
+      
     do{
-    gente[i].menu1(gente);
+    gente[indexPessoa].menu1(gente);
     cin>>op;
         switch(op)
         {
         case 1:
         {   
             system("cls");            
-            i+=1;    
+            adcPessoa;    
             n=i;
             cout<<"Nome: ";
             cin>>nome;
-            gente[i].setNome(nome);
+            gente[indexPessoa].setNome(nome);
             cout<<"Idade: ";
             cin>>idade;
-            gente[i].setIdade(idade);
-            gente[i].setDataNascimento();
+            gente[indexPessoa].setIdade(idade);
+            gente[indexPessoa].setDataNascimento();
             cout<<"Genero: ";
             cin>>genero;
-            gente[i].setGenero(genero);
-            gente[i].setDadosEndereco();
+            gente[indexPessoa].setGenero(genero);
+            gente[indexPessoa].setDadosEndereco();
             cout<<"\n\nNumero de Registro: "<<i;
-            gente[i].setLivro1("Sem Livro");
-            gente[i].setLivro2("Sem Livro");
-            gente[i].setLivro3("Sem Livro");
+            gente[indexPessoa].setLivro1("Sem Livro");
+            gente[indexPessoa].setLivro2("Sem Livro");
+            gente[indexPessoa].setLivro3("Sem Livro");
             getch();
             break;
         }
         case 2:
         {
-            gente[i].listaNomes(n ,gente);
+            gente[indexPessoa].listaNomes(n ,gente);
             cout<<"\nDigite o numero de Registro: ";
-            cin>>i;
+            cin>>indexPessoa;
             do{
                 system("cls");
-                cout<<"Usuario: "<<gente[i].getNome()<<"\n";
-                cout<<"Numero de Registro: "<<i<<"\n\n";
+                cout<<"Usuario: "<<gente[indexPessoa].getNome()<<"\n";
+                cout<<"Numero de Registro: "<<indexPessoa<<"\n\n";
                 cout<<"1 - Visualizar dados\n";
                 cout<<"2 - Emprestar Livro\n";
                 cout<<"3 - Devolver Livro\n";
@@ -68,36 +74,36 @@ int main()
                 {
                 case 1: 
                 {   
-                    gente[i].pesquisarDados(i, gente);
+                    gente[indexPessoa].pesquisarDados(indexPessoa, gente);
                     break;
                 }
                 case 2: 
                 {   
                     system("cls");
-                    cout<<"Quantidade Maxima de emprestimo: "<<gente[i].getMaxEmprestimo()<<"\n\n";
+                    cout<<"Quantidade Maxima de emprestimo: "<<gente[indexPessoa].getMaxEmprestimo()<<"\n\n";
                     string livro1,livro2,livro3;
-                    if(gente[i].getLivro1()=="Sem Livro"){
+                    if(gente[indexPessoa].getLivro1()=="Sem Livro"){
                     cout<<"Digite o nome do livro 1: ";
                     cin>>livro1;
-                    gente[i].setLivro1(livro1);
+                    gente[indexPessoa].setLivro1(livro1);
                     break;}
-                    if(gente[i].getLivro2()=="Sem Livro"){
+                    if(gente[indexPessoa].getLivro2()=="Sem Livro"){
                     cout<<"Digite o nome do livro 2: ";
                     cin>>livro2;
                     gente[i].setLivro2(livro2);
                     break;}
-                    if(gente[i].getLivro3()=="Sem Livro"){
+                    if(gente[indexPessoa].getLivro3()=="Sem Livro"){
                     cout<<"Digite o nome do livro 3: ";
                     cin>>livro3;
-                    gente[i].setLivro3(livro3);
+                    gente[indexPessoa].setLivro3(livro3);
                     break;}
                 break;
                 }
                 case 3: 
                 {   
                     system("cls");
-                    if ((gente[i].getLivro1()=="Sem Livro")&&(gente[i].getLivro2()=="Sem Livro")
-                    &&(gente[i].getLivro3()=="Sem Livro")) 
+                    if ((gente[indexPessoa].getLivro1()=="Sem Livro")&&(gente[i].getLivro2()=="Sem Livro")
+                    &&(gente[indexPessoa].getLivro3()=="Sem Livro")) 
                     {
                     cout<<"Usuario nao emprestou livro";
                     }
@@ -105,35 +111,35 @@ int main()
                     {
                         int rem;
                         cout<<"::Devolucao::\n\n";
-                        gente[i].listarLivros(i,gente);
+                        gente[indexPessoa].listarLivros(indexPessoa,gente);
                         cout<<"\n\nDigite o numero do livro que deseja remover: ";
                         cin>>rem;
                         switch(rem)
                         {
                         case 1: 
                         {
-                            gente[i].setLivro1("Sem Livro");
+                            gente[indexPessoa].setLivro1("Sem Livro");
                             break;
                         }
                         case 2: 
                         {
-                            gente[i].setLivro2("Sem Livro");
+                            gente[indexPessoa].setLivro2("Sem Livro");
                             break;
                         }
                         case 3: 
                         {
-                            gente[i].setLivro3("Sem Livro");
+                            gente[indexPessoa].setLivro3("Sem Livro");
                             break;
                         }
                         }
-                       gente[i].listarLivros(i, gente);
+                       gente[indexPessoa].listarLivros(indexPessoa, gente);
                     }  
                     getch(); 
                     break;
                 }
                 case 4:
                 {
-                    gente[i].listarLivros(i, gente);
+                    gente[indexPessoa].listarLivros(indexPessoa, gente);
                     getch();
                     break;
                 }

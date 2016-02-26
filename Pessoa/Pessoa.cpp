@@ -10,30 +10,67 @@ using namespace std;
 int Pessoa::qtdPessoas = 0;
 const int Pessoa::maxEmprestimo=3;
 
-//Falta Melhorar
-
-Pessoa::AdcPessoa(int n, Pessoa *gente, string nome)
+//operador mostrar na tela a data;
+ostream & operator<<(ostream & o, const Data & d)
 {
-    listaNomes(n, *gente);
-    Pessoa *aux = new gente[i];
+o << d.dia << '/' << d.mes << '/' << d.ano;
+return o;
+}
+
+bool Pessoa::operator==(const Pessoa *gente, int indexPessoa, string nome) const
+{
+    if (gente[indexPessoa].getNome != nome)
+            return false;
+    return true;
+}
+
+const Pessoa& Pesssoa::operator=(const Pessoa &gente)
+{
+    nome = gente[i].getNome();
+    genero = gente[i].getGenero();
+    idade = gente[i].getIdade();
+    livro1 = gente[i].getLivro1();
+    livro2 = gente[i].getLivro2();
+    livro3 = gente[i].getLivro3();
+    maxEmp = gente[i].getMaxEmprestimo();
+}
+
+//Falta Melhorar
+Pessoa::novaPessoa(int indexPessoa, Pessoa *gente)
+{
+    listaNomes(indexPessoa, *gente);
     
-    for(int j=0;j<i,j++)
+    if(indexPessoa != 0)
+    {
+    Pessoa *aux = new Pessoa[indexPessoa];
+    
+    for(int i=0;i<indexPessoa-1,i++)
         aux[i] = gente[i];
     
     delete [] gente;
     
-    for(int j=0;j<i-1;j++)
+    gente = new Pessoa[indexPessoa+1];
+    for(int i=0;i<indexPessoa;i++)
         gente[i] = aux[i];
         
-    gente[i-1] = nome;
+    gente[indexPessoa-1]= gente;
     
     delete [] aux;  
+    }    
+    else
+    {
+        this->gente = new float[++this->quantidadeRecompensas];
+        this->gente[1] = gente;
+    }
+}
+//Falta Melhorar
+
+Pessoa::~Pessoa()
+{
+    delete [] gente;
 }
 
-//Falta Melhorar
- 
-Pessoa::Pessoa(const string &nome, const int &idade, const string &genero, const Data &dataNascimento,
-        const Endereco &dadosEndereco, const string &livro1, const string &livro2, const string &livro3)
+Pessoa::Pessoa(const string &nome, const int &idade, const string &genero, const Data &dataNascimento, const Endereco &dadosEndereco, const string &livro1, const string &livro2, const string &livro3)
 {
     this -> nome= nome;
     this -> idade= idade;
@@ -56,9 +93,6 @@ Pessoa::Pessoa(const Pessoa &p)
     this->livro3 = p.livro3;
 }
 
-Pessoa::~Pessoa()
-{
-}
 int Pessoa::getQtdPessoas()
 {
     return this->qtdPessoas;

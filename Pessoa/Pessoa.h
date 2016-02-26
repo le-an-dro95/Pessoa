@@ -34,6 +34,8 @@ public:
     void setDataNascimento();
     void setDadosEndereco();
     static void atualizarNumeroLivros();
+    ostream & operator<<(ostream & o, const Data & d);
+    
     ~Pessoa();
     
 private:
@@ -46,9 +48,8 @@ private:
     static int qtdPessoas;
     const static int maxEmprestimo;
     Data dataNascimento;
-    int i;
+    int indexPessoa;
     Endereco dadosEndereco;
-    
     
     static int qtddeLivros;
 };
