@@ -6,9 +6,11 @@
 
 const int i=0;
 using namespace std;
+using std::ostream;
 
 class Pessoa
 {
+    friend ostream & operator<<(ostream&, const Pessoa &);
 public:    
     Pessoa();
     Pessoa(const Pessoa &p);   
@@ -34,7 +36,9 @@ public:
     void setDataNascimento();
     void setDadosEndereco();
     static void atualizarNumeroLivros();
-    void novaPessoa(int indexPessoa, Pessoa *gente);
+    //void novaPessoa(int indexPessoa, Pessoa *gente);
+    bool operator==(const Pessoa &) const;
+    const Pessoa &operator=(const Pessoa &);
     //ostream & operator<<(ostream & o, const Data & d);
     
     ~Pessoa();

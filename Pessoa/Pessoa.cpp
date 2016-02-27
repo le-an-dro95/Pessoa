@@ -12,28 +12,28 @@ const int Pessoa::maxEmprestimo=3;
 
 //operador mostrar na tela a data;
 
-ostream & operator<<(ostream & o, const Data & d)
+ostream & operator<<(ostream &o, const Pessoa &gente)
 {
-o << d.dia << '/' << d.mes << '/' << d.ano;
+o <<"\nLivro 1: "<<gente.livro1<<".\n"<<"Livro 2: "<<gente.livro2<<".\n"<<"Livro 3:  "<<gente.livro3<<"\n";
+
 return o;
 }
 
-bool Pessoa::operator==(const Pessoa *gente, int indexPessoa, string nome) const
+bool Pessoa::operator==(const Pessoa &gente) const
 {
-    if (gente[indexPessoa].getNome != nome)
-            return false;
-    return true;
+    if (livro1 == gente.livro1 && livro2 == gente.livro2 && livro3 == gente.livro3)
+            return true;
+    return false;
 }
 
-const Pessoa& Pesssoa::operator=(const Pessoa &gente)
+const Pessoa& Pessoa::operator=(const Pessoa &gente)
 {
-    nome = gente[i].getNome();
-    genero = gente[i].getGenero();
-    idade = gente[i].getIdade();
-    livro1 = gente[i].getLivro1();
-    livro2 = gente[i].getLivro2();
-    livro3 = gente[i].getLivro3();
-    maxEmp = gente[i].getMaxEmprestimo();
+    nome = gente.nome;
+    genero = gente.genero;
+    idade = gente.idade;
+    livro1 = gente.livro1;
+    livro2 = gente.livro2;
+    livro3 = gente.livro3;
 }
 
 void Pessoa::novaPessoa(string nome)
