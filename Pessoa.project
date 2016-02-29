@@ -98,5 +98,9 @@
     <File Name="Pessoa/Data.cpp"/>
     <File Name="Pessoa/Endereco.h"/>
     <File Name="Pessoa/Endereco.cpp"/>
+    <File Name="Pessoa/PessoaFisica.h"/>
+    <File Name="Pessoa/PessoaFisica.cpp"/>
+    <File Name="Pessoa/PessoaJuridica.h"/>
+    <File Name="Pessoa/PessoaJuridica.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>
