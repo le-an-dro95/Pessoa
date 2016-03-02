@@ -1,5 +1,7 @@
 #include "PessoaFisica.h"
 #include <string>
+#include "Pessoa.h"
+
 
 PessoaFisica::PessoaFisica(string cpf)
 {
@@ -11,9 +13,16 @@ PessoaFisica::PessoaFisica(const PessoaFisica &novaFisica)
     this->cpf = novaFisica.cpf;
 }
 
-string PessoaFisica::getCpf()
+ostream & operator<<(ostream &out, const PessoaFisica &gente)
 {
-    return this->cpf;
+out <<"CPF: "<<gente.cpf<<"\n";
+return out;
+}
+
+void PessoaFisica::imprimiDados()
+{
+    Pessoa::pesquisarDados()
+    cout<<"CPF: "<<cpf<<"\n";
 }
 
 void PessoaFisica::setCpf(string cpf)

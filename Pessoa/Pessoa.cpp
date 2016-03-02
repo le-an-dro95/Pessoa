@@ -35,7 +35,8 @@ const Pessoa& Pessoa::operator=(const Pessoa &gente)
     livro2 = gente.livro2;
     livro3 = gente.livro3;
 }
-
+// ajeitar para alocar livros.
+//mecher no maim para não alocar vetor de pessoas e sim só 1 pessoa.
 void Pessoa::novaPessoa(string nome)
 {
     listaNomes(indexPessoa, gente);
@@ -65,6 +66,7 @@ void Pessoa::novaPessoa(string nome)
 }
 Pessoa::~Pessoa()
 {
+    //desalocar Livros
     delete [] gente;
 }
 

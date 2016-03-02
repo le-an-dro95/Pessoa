@@ -12,9 +12,17 @@ PessoaJuridica::PessoaJuridica(const PessoaJuridica &novaJuridica)
     this->cnpj = novaJuridica.cnpj;
 }
 
-string PessoaJuridica::getCnpj()
+ostream & operator<<(ostream &out, const PessoaJuridica &gente)
 {
-    return this->cnpj;
+out <<"CNPJ: "<<gente.cnpj<<"\n";
+return out;
+}
+
+
+void PessoaJuridica::imprimiDados()
+{
+    Pessoa::pesquisarDados()
+    cout<<"CNPJ: "<<cnpj<<"\n";
 }
 
 void PessoaJuridica::setCnpj(string cnpj)

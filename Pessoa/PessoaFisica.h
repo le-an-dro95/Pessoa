@@ -1,11 +1,13 @@
 #ifndef PESSOAFISICA_H
 #define PESSOAFISICA_H
 #include <string>
+#include "Pessoa.h"
 
 using namespace std;
 
-class PessoaFisica
+class PessoaFisica : public Pessoa
 {
+    friend ostream &operator<<(ostream &, const PessoaFisica &);
 public:
     PessoaFisica(string);
     PessoaFisica(const PessoaFisica &novaFisica);
