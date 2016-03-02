@@ -1,10 +1,13 @@
 #ifndef PESSOAJURIDICA_H
 #define PESSOAJURIDICA_H
+#include <string>
+using namespace std;
 
 class PessoaJuridica
 {
 public:
-    PessoaJuridica();
+    PessoaJuridica(string);
+    PessoaJuridica(const PessoaJuridica &novaJuridica);
     ~PessoaJuridica();
     string getCnpj();
     void setCnpj(string);
@@ -12,3 +15,5 @@ public:
 private:
     string cnpj;
 };
+
+#endif // PESSOAJURIDICA_H
