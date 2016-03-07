@@ -1,3 +1,11 @@
+/*concertar: adcionar operadores de atribuição nas classe de herança
+    usar o static_cast igual ao da classe circulo dos slides
+      estanciar no main, usando pessoaFisica e PessoaJuridica;
+ 
+
+ */
+
+
 #ifndef PESSOA_H
 #define PESSOA_H
 #include <string>

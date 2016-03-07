@@ -10,7 +10,7 @@ class PessoaFisica : public Pessoa
     friend ostream &operator<<(ostream &, const PessoaFisica &);
 public:
     PessoaFisica(string);
-    PessoaFisica(const PessoaFisica &novaFisica);
+    PessoaFisica(const PessoaFisica &);
     ~PessoaFisica();
     string getCpf();
     void imprimiDados();

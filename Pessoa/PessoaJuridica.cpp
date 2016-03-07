@@ -9,9 +9,9 @@ PessoaJuridica::PessoaJuridica(string cnpj)
     this->cnpj = cnpj;
 }
 
-PessoaJuridica::PessoaJuridica(const PessoaJuridica &novaJuridica)
+PessoaJuridica::PessoaJuridica(const PessoaJuridica &out): Pessoa( static_cast<Pessoa>(out))
 {
-    this->cnpj = novaJuridica.cnpj;
+    this->cnpj = out.cnpj;
 }
 
 ostream & operator<<(ostream &out, const PessoaJuridica &gente)

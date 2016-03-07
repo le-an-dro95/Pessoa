@@ -10,7 +10,7 @@ class PessoaJuridica : public Pessoa
     friend ostream &operator<<(ostream &, const PessoaJuridica &);
 public:
     PessoaJuridica(string);
-    PessoaJuridica(const PessoaJuridica &novaJuridica);
+    PessoaJuridica(const PessoaJuridica &);
     ~PessoaJuridica();
     string getCnpj();
     void imprimiDados();
