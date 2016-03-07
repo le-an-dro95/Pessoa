@@ -2,6 +2,7 @@
 #define PESSOAJURIDICA_H
 #include <string>
 #include "Pessoa.h"
+
 using namespace std;
 
 class PessoaJuridica : public Pessoa

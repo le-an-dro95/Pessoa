@@ -1,5 +1,7 @@
 #include "PessoaJuridica.h"
 #include <string>
+#include "Pessoa.h"
+
 using namespace std;
 
 PessoaJuridica::PessoaJuridica(string cnpj)
