@@ -9,75 +9,14 @@ using namespace std;
 
 int Pessoa::qtdPessoas = 0;
 const int Pessoa::maxEmprestimo=3;
+int Pessoa::qtddeLivros=0;
 
-//operador mostrar na tela a data;
-
-ostream & operator<<(ostream &o, const Pessoa &gente)
-{
-o <<"\nLivro 1: "<<gente.livro1<<".\n"<<"Livro 2: "<<gente.livro2<<".\n"<<"Livro 3:  "<<gente.livro3<<"\n";
-
-return o;
-}
-
-bool Pessoa::operator==(const Pessoa &gente) const
-{
-    if (livro1 == gente.livro1 && livro2 == gente.livro2 && livro3 == gente.livro3)
-            return true;
-    return false;
-}
-
-const Pessoa& Pessoa::operator=(const Pessoa &gente)
-{
-    nome = gente.nome;
-    genero = gente.genero;
-    idade = gente.idade;
-    livro1 = gente.livro1;
-    livro2 = gente.livro2;
-    livro3 = gente.livro3;
-}
-// ajeitar para alocar livros.
-//mecher no maim para não alocar vetor de pessoas e sim só 1 pessoa.
-void Pessoa::novaPessoa(string nome)
-{
-    listaNomes(indexPessoa, gente);
-    
-    if(indexPessoa != 0)
-    {
-    Pessoa *aux = new Pessoa[indexPessoa];
-    
-    for(int i=0;i<indexPessoa-1;i++)
-        aux[i] = gente[i];
-    
-    delete [] gente;
-    
-    gente = new Pessoa[indexPessoa+1];
-    for(int i=0;i<indexPessoa;i++)
-        gente[i] = aux[i];
-        
-    gente[indexPessoa-1]= gente;
-    
-    delete [] aux;
-    }
-     else
-    {
-        this->gente = new Pessoa[++indexPessoa];
-        this->gente[1] = gente;
-    }
-}
-Pessoa::~Pessoa()
-{
-    //desalocar Livros
-    delete [] gente;
-}
 
 Pessoa::Pessoa():dataNascimento(01,01,1900), dadosEndereco("Rua",0,"bairro","cidade","estado")
 {
     this -> nome= "nome";
     this -> idade= 0;
     this -> genero= "genero";
-    this -> livro1= "livro1";
-    this -> livro2= "livro2";
-    this -> livro3= "livro3";
 }
 
 Pessoa::Pessoa(const Pessoa &p):dataNascimento(p.dataNascimento), dadosEndereco(p.dadosEndereco)
@@ -85,9 +24,128 @@ Pessoa::Pessoa(const Pessoa &p):dataNascimento(p.dataNascimento), dadosEndereco(
     this->nome = p.nome; 
     this->idade = p.idade;
     this->genero = p.genero;
-    this->livro1 = p.livro1;
-    this->livro2 = p.livro2;
-    this->livro3 = p.livro3;
+}
+
+Pessoa::~Pessoa()
+{
+    delete [] livroNomes;
+}
+
+ostream & operator<<(ostream &o, const Pessoa &gente)
+{
+o <<"\nNome: "<<gente.nome<<".\n"<<"Idade: "<<gente.idade<<".\n"<<"Genero:  "<<gente.genero<<"\n";
+
+return o;
+}
+
+bool Pessoa::operator==(const Pessoa &gente) const
+{
+    if (nome == gente.nome && idade == gente.idade && genero == gente.genero)
+            return true;
+    return false;
+}
+
+const Pessoa & Pessoa::operator=(const Pessoa &gente)
+{
+    nome = gente.nome;
+    genero = gente.genero;
+    idade = gente.idade;
+}
+
+void Pessoa::adcionarLivro(const string &livro)
+//Adiciona o livro por meio de alocação dinamica de memoria com limite de ate 3 livros.
+{
+    if(qtddeLivros<maxEmprestimo)
+    {
+    if(qtddeLivros!=0)
+    {
+    string *aux = new string[qtddeLivros];
+    
+    for(int i=0;i<qtddeLivros;i++)
+        aux[i] = livroNomes[i];
+    
+    delete [] livroNomes;
+    
+    livroNomes = new string[++qtddeLivros];
+    
+    for(int i=0;i<qtddeLivros-1;i++)
+        livroNomes[i] = aux[i];
+        
+    livroNomes[qtddeLivros-1]= livro;
+    
+    delete [] aux;
+    }
+     else
+    {
+        this->livroNomes = new string[++qtddeLivros];
+        this->livroNomes[0] = livro;
+    }
+    }
+    else 
+    {
+        system("cls");
+        cout<<"\n\nNumero maximo de emprestimo atingido";
+        getch();
+    }
+}
+
+void Pessoa::remLivro()
+//Remove livro com alocação dinamica de memoria..
+{
+    int rem, i;
+    
+    if(qtddeLivros!=0)
+    {
+    system("cls");
+    cout<<":::Livros Emprestados::: \n\n";
+    for(i=0;i<qtddeLivros;i++){
+        cout<<""<<i<<"- "<<livroNomes[i]<<"\n";
+    }
+    
+    cout<<"\n\nDigite o numero do Livro que deseja remover:";
+    cin>>rem;
+    
+    
+    string *aux = new string[qtddeLivros];
+    
+    for(int i=0;i<qtddeLivros;i++)
+        aux[i] = livroNomes[i];
+    
+    delete [] livroNomes;
+    
+    livroNomes = new string[--qtddeLivros];
+    
+    for(int i=0;i<rem;i++){
+        livroNomes[i]=aux[i];
+    }
+        
+    for(int i=rem;i<qtddeLivros;i++){
+        livroNomes[i] = aux[i+1];
+    }
+    
+    delete [] aux;
+    cout<<"\n\nLivro Removido!";
+    getch();
+    }
+    else
+    {
+    cout<<"\nUsuario nao possui livro emprestado";
+    getch();
+    }
+}
+
+void Pessoa::listarLivros()
+{   
+    system("cls");
+    if(qtddeLivros!=0){
+
+        cout<<":::Livros Emprestados::: \n\n";
+        for(int i=0;i<qtddeLivros;i++){
+            cout<<""<<i<<"- "<<livroNomes[i]<<"\n";
+        }
+    }
+    else cout<<"\nUsuario nao possui livro emprestado";
+    getch();
 }
 
 int Pessoa::getQtdPessoas()
@@ -182,7 +240,7 @@ void Pessoa::listaNomes(int n, Pessoa *gente){
     }
 }
 
-void Pessoa::pesquisarDados(int indexPessoa, Pessoa *gente)
+void Pessoa::setDados(int indexPessoa, Pessoa *gente)
 {   
     system("cls");
     cout<<"Dados: \n";
@@ -194,43 +252,3 @@ void Pessoa::pesquisarDados(int indexPessoa, Pessoa *gente)
     dadosEndereco.getEndereco();
     getch();
 }
-
-void Pessoa::setLivro1(string livro1)
-{
-    this->livro1 = livro1;
-}
-
-void Pessoa::setLivro2(string livro2)
-{
-    this->livro2 = livro2;
-}
-
-void Pessoa::setLivro3(string livro3)
-{
-    this->livro3 = livro3;
-}
-
-string Pessoa::getLivro1()
-{
-    return this->livro1; 
-}
-
-string Pessoa::getLivro2()
-{
-    return this->livro2; 
-}
-
-string Pessoa::getLivro3()
-{
-    return this->livro3; 
-}
-
-void Pessoa::listarLivros(int indexPessoa, Pessoa *gente)
-{   
-    system("cls");
-    cout<<"Livros ja emprestados pelo usuario\n\n";
-    cout<<"1- "<<gente[indexPessoa].getLivro1()<<"\n";
-    cout<<"2- "<<gente[indexPessoa].getLivro2()<<"\n";
-    cout<<"3- "<<gente[indexPessoa].getLivro3()<<"\n";
-}
-
