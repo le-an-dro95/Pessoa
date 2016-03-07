@@ -13,6 +13,7 @@ public:
     PessoaJuridica(const PessoaJuridica &novaJuridica);
     ~PessoaJuridica();
     string getCnpj();
+    void imprimiDados();
     void setCnpj(string);
 
 private:

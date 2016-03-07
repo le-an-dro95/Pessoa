@@ -23,7 +23,7 @@ return out;
 
 void PessoaJuridica::imprimiDados()
 {
-    Pessoa::pesquisarDados()
+    Pessoa::pesquisarDados();
     cout<<"CNPJ: "<<cnpj<<"\n";
 }
 

@@ -13,6 +13,7 @@ public:
     PessoaFisica(const PessoaFisica &novaFisica);
     ~PessoaFisica();
     string getCpf();
+    void imprimiDados();
     void setCpf(string);
     
     

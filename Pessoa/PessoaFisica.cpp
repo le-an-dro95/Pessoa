@@ -21,7 +21,7 @@ return out;
 
 void PessoaFisica::imprimiDados()
 {
-    Pessoa::pesquisarDados()
+    Pessoa::pesquisarDados();
     cout<<"CPF: "<<cpf<<"\n";
 }
 
