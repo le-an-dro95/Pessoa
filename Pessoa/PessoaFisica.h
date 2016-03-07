@@ -1,10 +1,11 @@
 #ifndef PESSOAFISICA_H
 #define PESSOAFISICA_H
 #include <string>
+#include "Pessoa.h";
 
 using namespace std;
 
-class PessoaFisica
+class PessoaFisica : public Pessoa
 {
 public:
     PessoaFisica(string);

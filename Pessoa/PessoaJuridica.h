@@ -1,9 +1,11 @@
 #ifndef PESSOAJURIDICA_H
 #define PESSOAJURIDICA_H
 #include <string>
+#include "Pessoa.h";
+
 using namespace std;
 
-class PessoaJuridica
+class PessoaJuridica : public Pessoa
 {
 public:
     PessoaJuridica(string);
