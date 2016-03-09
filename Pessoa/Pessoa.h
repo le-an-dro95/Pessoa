@@ -1,9 +1,12 @@
 /*concertar: adcionar operadores de atribuição nas classe de herança
     usar o static_cast igual ao da classe circulo dos slides
       estanciar no main, usando pessoaFisica e PessoaJuridica;
+       * terminar a herança, fazer augo com os metodos dela...
+       * 
+       * ate 10h da segunda-feira; entregar tudo..
  
 
- */
+*/
 
 
 #ifndef PESSOA_H
