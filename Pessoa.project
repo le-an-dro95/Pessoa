@@ -102,7 +102,7 @@
     <File Name="Pessoa/PessoaFisica.cpp"/>
     <File Name="Pessoa/PessoaJuridica.h"/>
     <File Name="Pessoa/PessoaJuridica.cpp"/>
-    <File Name="Pessoa/Usuario.h"/>
-    <File Name="Pessoa/Usuario.cpp"/>
+    <File Name="Pessoa/Cliente.cpp"/>
+    <File Name="Pessoa/Cliente.h"/>
   </VirtualDirectory>
 </CodeLite_Project>

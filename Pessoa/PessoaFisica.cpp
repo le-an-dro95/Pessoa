@@ -1,31 +1,53 @@
 #include "PessoaFisica.h"
+#include <iostream>
 #include <string>
-#include "Pessoa.h"
 
+using namespace std;
 
-PessoaFisica::PessoaFisica(string cpf)
+PessoaFisica::PessoaFisica()
+{
+    this->cpf=00000000000;
+}
+
+PessoaFisica::PessoaFisica(int cpf)
 {
     this->cpf = cpf;
 }
 
-PessoaFisica::PessoaFisica(const PessoaFisica &out): Pessoa( static_cast<Pessoa>(out))
+PessoaFisica::PessoaFisica(const PessoaFisica &outra):Pessoa(static_cast<Pessoa> (outra))
 {
-    this->cpf = out.cpf;
+    cpf = outra.cpf;
 }
 
-ostream & operator<<(ostream &out, const PessoaFisica &gente)
+ostream &operator<<(ostream &out, const PessoaFisica &gente)
 {
-out <<"CPF: "<<gente.cpf<<"\n";
+out << static_cast <Pessoa> (gente)
+<< "CPF: "<<gente.cpf<<"\n";
 return out;
+}
+
+bool PessoaFisica::operator==(const PessoaFisica &gente) const
+{
+    if((static_cast<Pessoa> (*this) == static_cast <Pessoa>(gente)) && (cpf == gente.cpf))
+        return true;
+    return false;
+}
+
+const PessoaFisica & PessoaFisica::operator=(const PessoaFisica &gente)
+{
+    static_cast <Pessoa&> (*this) = static_cast <Pessoa> (gente);
+    cpf = gente.cpf;
+    
+    return *this;
 }
 
 void PessoaFisica::imprimiDados()
 {
-    Pessoa::pesquisarDados();
+    //Pessoa::setDados();
     cout<<"CPF: "<<cpf<<"\n";
 }
 
-void PessoaFisica::setCpf(string cpf)
+void PessoaFisica::setCpf(int cpf)
 {
     this->cpf = cpf;
 }

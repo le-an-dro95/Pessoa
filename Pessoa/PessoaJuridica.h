@@ -5,19 +5,24 @@
 
 using namespace std;
 
-class PessoaJuridica : public Pessoa
+class PessoaJuridica: public Pessoa
 {
     friend ostream &operator<<(ostream &, const PessoaJuridica &);
 public:
-    PessoaJuridica(string);
+    PessoaJuridica();
+    PessoaJuridica(int);
     PessoaJuridica(const PessoaJuridica &);
     ~PessoaJuridica();
-    string getCnpj();
+    int getCnpj();
     void imprimiDados();
-    void setCnpj(string);
+    void setCnpj(int);
+    
+    
+    bool operator==(const PessoaJuridica &) const;
+    const PessoaJuridica &operator=(const PessoaJuridica &);
 
 private:
-    string cnpj;
+    int cnpj;
 };
 
 #endif // PESSOAJURIDICA_H

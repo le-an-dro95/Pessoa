@@ -1,5 +1,7 @@
 #include <iostream>
-#include "Pessoa.h"
+//#include "Pessoa.h"
+#include "PessoaFisica.h"
+//#include "PessoaJuridica.h"
 #include <string>
 #include <conio.h>
 #include <stdio.h>
@@ -14,18 +16,18 @@ int main()
 {   
     string resp1, resp2, nome, genero, livro;
     int n, op, op1, idade;
-    Pessoa gente[MAX];
-
     int indexPessoa=0;
     
+    PessoaFisica gente[MAX];
+    
     do{
-    gente[indexPessoa].menu1(gente);
+    gente[indexPessoa].menu1(gente);    
     cin>>op;
         switch(op)
         {
         case 1:
         {   
-            system("cls");            
+            system("cls"); 
             indexPessoa+=1;
             n=indexPessoa;
             cout<<"Nome: ";
@@ -40,6 +42,7 @@ int main()
             gente[indexPessoa].setGenero(genero);
             gente[indexPessoa].setDadosEndereco();
             cout<<"\n\nNumero de Registro: "<<indexPessoa;
+
             getch();
             break;
         }

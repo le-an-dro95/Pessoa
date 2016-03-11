@@ -1,11 +1,7 @@
-/*concertar: adcionar operadores de atribuição nas classe de herança
-    usar o static_cast igual ao da classe circulo dos slides
-      estanciar no main, usando pessoaFisica e PessoaJuridica;
+/*
        * terminar a herança, fazer augo com os metodos dela...
        * 
        * ate 10h da segunda-feira; entregar tudo..
- 
-
 */
 
 
@@ -22,21 +18,22 @@ class Pessoa
     friend ostream & operator<<(ostream&, const Pessoa &);
 public:    
     Pessoa();
-    Pessoa(const Pessoa &p); 
+    Pessoa(const Pessoa &); 
     ~Pessoa();
-    void menu1(Pessoa *gente);
-    void setNome(const string &nome);
-    void setIdade(int idade);
-    void setGenero(const string &genero);
+    void menu1(Pessoa *);
+    void setNome(const string &);
+    void setIdade(int);
+    void setGenero(const string &);
     void setDataNascimento();
     void setDadosEndereco();
-    void setDados(int indexPessoa, Pessoa *gente);
+    void setDados(int, Pessoa *);
     string getNome();
     int getIdade();
     string getGenero();   
     int getQtdPessoas();
+    int indexPessoa;
     int getMaxEmprestimo();
-    void listaNomes(int n, Pessoa *gente);
+    void listaNomes(int, Pessoa *);
     void adcionarLivro(const string &);
     void remLivro();
     void listarLivros();   
@@ -47,7 +44,7 @@ public:
     const Pessoa &operator=(const Pessoa &);
     
 private:    
-    int indexPessoa;
+
     string nome;
     int idade;
     string genero; 
