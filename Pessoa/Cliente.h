@@ -10,13 +10,14 @@ class Cliente: public PessoaFisica
     friend ostream &operator<<(ostream &, const Cliente &);
 public:
     Cliente();
-    Cliente(string, int);
+    Cliente(string, string);
     Cliente(const Cliente &);
     ~Cliente();
-    void getLogin();
-    void getSenha();
-    string returnLogin();
-    int returnSenha();
+    void setLogin();
+    void setSenha();
+    string getLogin();
+    string getSenha();
+    bool liberaAcesso(string, int);
     
     bool operator==(const Cliente &) const;
     const Cliente &operator=(const Cliente &);
@@ -24,7 +25,7 @@ public:
 private:
 
 string login;
-int senha;
+string senha;
 
 };
 

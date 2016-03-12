@@ -13,7 +13,7 @@ Endereco::Endereco(const string &rua, const int &n, const string &bairro, const 
     this->estado = estado;
 }
 
-Endereco::setEndereco(const string &rua, const int &n, const string &bairro, const string &cidade, const string &estado)
+void Endereco::setEndereco(const string &rua, const int &n, const string &bairro, const string &cidade, const string &estado)
 {
     this->rua = rua;
     this->n = n;

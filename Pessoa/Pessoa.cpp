@@ -80,6 +80,7 @@ void Pessoa::adcionarLivro(const string &livro)
         this->livroNomes = new string[++qtddeLivros];
         this->livroNomes[0] = livro;
     }
+    cout<<"Confirmado";
     }
     else 
     {
@@ -158,7 +159,7 @@ int Pessoa::getMaxEmprestimo()
     return this->maxEmprestimo;
 }
 
-void Pessoa::menu1(Pessoa *gente)
+void Pessoa::menu(Pessoa *gente)
 {   
     system("cls");   
     cout<<"Quantidade de usuario cadastrado: "<<gente[indexPessoa].getQtdPessoas()<<"\n\n";
@@ -234,21 +235,19 @@ string Pessoa::getGenero()
 void Pessoa::listaNomes(int n, Pessoa *gente){
     system("cls");
     cout<<"Lista de Nomes\n\n";
-    int i;
-    for(i=1;i<=n;i++){
-        cout<<" "<<i<<"- "<<gente[i].getNome()<<"\n";
+    for(int i=1;i<=n;i++){
+    cout<<" "<<i<<"- "<<gente[i].getNome()<<"\n";
     }
 }
 
-void Pessoa::setDados(int indexPessoa, Pessoa *gente)
+void Pessoa::setDados()
 {   
     system("cls");
     cout<<"Dados: \n";
-    cout<<"Nome: "<<gente[indexPessoa].getNome();
-    cout<<"\nIdade: "<<gente[indexPessoa].getIdade();
+    cout<<"Nome: "<<nome;
+    cout<<"\nIdade: "<<idade;
     cout<<"\nData de nascimento: "<<dataNascimento.getDia()<<"/"
     <<dataNascimento.getMes()<<"/"<<dataNascimento.getAno();
-    cout<<"\nGenero: "<<gente[indexPessoa].getGenero();
+    cout<<"\nGenero: "<<genero;
     dadosEndereco.getEndereco();
-    getch();
 }

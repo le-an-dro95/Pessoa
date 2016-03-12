@@ -1,12 +1,10 @@
 #include <iostream>
-//#include "Pessoa.h"
-#include "PessoaFisica.h"
-//#include "PessoaJuridica.h"
 #include <string>
 #include <conio.h>
 #include <stdio.h>
 #include "Data.h"
 #include "Endereco.h"
+#include "Cliente.h"
 
 const int MAX=10;
 
@@ -18,17 +16,18 @@ int main()
     int n, op, op1, idade;
     int indexPessoa=0;
     
-    PessoaFisica gente[MAX];
+    Cliente gente[MAX];
     
     do{
-    gente[indexPessoa].menu1(gente);    
+    gente[indexPessoa].menu(gente);    
     cin>>op;
         switch(op)
         {
         case 1:
         {   
             system("cls"); 
-            indexPessoa+=1;
+            cout<<"::: CADASTRO :::\n\n";
+            indexPessoa=indexPessoa+1;
             n=indexPessoa;
             cout<<"Nome: ";
             cin>>nome;
@@ -41,15 +40,25 @@ int main()
             cin>>genero;
             gente[indexPessoa].setGenero(genero);
             gente[indexPessoa].setDadosEndereco();
+            gente[indexPessoa].setCpf(); //Método da Classe PessoaFisica
+            
+            //Métodos da classe Cliente:
+            gente[indexPessoa].setLogin();
+            gente[indexPessoa].setSenha();
+            //
             cout<<"\n\nNumero de Registro: "<<indexPessoa;
 
             getch();
             break;
         }
         case 2:
-        {
-            gente[indexPessoa].listaNomes(n, gente);
-            cout<<"\nDigite o numero de Registro: ";
+        {   
+            system("cls");
+            cout<<"Lista de Nomes\n\n";
+            for(int i=1;i<=n;i++){
+            cout<<""<<i<<"- "<<gente[i].getNome()<<"\n";
+            }
+            cout<<"\n\nDigite o numero de Registro: ";
             cin>>indexPessoa;
             do{
                 system("cls");
@@ -66,16 +75,29 @@ int main()
                 {
                 case 1: 
                 {   
-                    gente[indexPessoa].setDados(indexPessoa, gente);
+                    gente[indexPessoa].setDados();
+                    cout<<"CPF: "<<gente[indexPessoa].getCpf();
+                    getch();
                     break;
                 }
                 case 2: 
                 {   
+                    string logintest;
+                    string senhatest;
                     system("cls");
                     cout<<"Quantidade Maxima de emprestimo: "<<gente[indexPessoa].getMaxEmprestimo()<<"\n\n";
                     cout<<"Nome do Livro: ";
                     cin>>livro;
-                    gente[indexPessoa].adcionarLivro(livro);
+                    system("cls");
+                    cout<<"Confirmar Usuario\n\n";
+                    cout<<"Login: ";
+                    cin>> logintest;
+                    cout<<"Senha: ";
+                    cin>>senhatest;                    
+                    if((logintest == gente[indexPessoa].getLogin()) && (senhatest == gente[indexPessoa].getSenha()))
+                        gente[indexPessoa].adcionarLivro(livro);
+                    else cout<<"Login ou senha incorretos!";
+                    getch();
                     break;
                 }
                 case 3: 

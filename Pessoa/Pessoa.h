@@ -1,10 +1,3 @@
-/*
-       * terminar a herança, fazer augo com os metodos dela...
-       * 
-       * ate 10h da segunda-feira; entregar tudo..
-*/
-
-
 #ifndef PESSOA_H
 #define PESSOA_H
 #include <string>
@@ -20,23 +13,22 @@ public:
     Pessoa();
     Pessoa(const Pessoa &); 
     ~Pessoa();
-    void menu1(Pessoa *);
+    void menu(Pessoa *);
     void setNome(const string &);
     void setIdade(int);
     void setGenero(const string &);
     void setDataNascimento();
     void setDadosEndereco();
-    void setDados(int, Pessoa *);
+    void setDados();
     string getNome();
     int getIdade();
     string getGenero();   
     int getQtdPessoas();
-    int indexPessoa;
     int getMaxEmprestimo();
-    void listaNomes(int, Pessoa *);
+    void listaNomes(int n, Pessoa *);
     void adcionarLivro(const string &);
     void remLivro();
-    void listarLivros();   
+    void listarLivros();  
 
     static void atualizarNumeroLivros();//-->
 
@@ -52,11 +44,13 @@ private:
     Data dataNascimento;
     Endereco dadosEndereco;
     
+    int indexPessoa;
     static int qtdPessoas;
     const static int maxEmprestimo;
     static int qtddeLivros; 
     
-    string *livroNomes;  
+    string *livroNomes; 
+    
 };
 
 #endif // PESSOA_H

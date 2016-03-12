@@ -6,7 +6,7 @@ using namespace std;
 
 PessoaFisica::PessoaFisica()
 {
-    this->cpf=00000000000;
+    this->cpf="000.000.000-00";
 }
 
 PessoaFisica::PessoaFisica(int cpf)
@@ -41,15 +41,15 @@ const PessoaFisica & PessoaFisica::operator=(const PessoaFisica &gente)
     return *this;
 }
 
-void PessoaFisica::imprimiDados()
+string PessoaFisica::getCpf()
 {
-    //Pessoa::setDados();
-    cout<<"CPF: "<<cpf<<"\n";
+    return cpf;
 }
 
-void PessoaFisica::setCpf(int cpf)
+void PessoaFisica::setCpf()
 {
-    this->cpf = cpf;
+    cout<<"CPF: ";
+    cin>>cpf;
 }
     
 PessoaFisica::~PessoaFisica()

@@ -15,15 +15,14 @@ public:
     PessoaFisica(const PessoaFisica &);
     ~PessoaFisica();
     string getCpf();
-    void imprimiDados();
-    void setCpf(int);
+    void setCpf();
 
     bool operator==(const PessoaFisica &) const;
     const PessoaFisica &operator=(const PessoaFisica &);
     
     
 private:
-    int cpf;
+    string cpf;
     
 };
 

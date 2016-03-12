@@ -1,15 +1,16 @@
 #include "Cliente.h"
 #include <iostream>
+#include <string>
 
 using namespace std;
 
 Cliente::Cliente()
 {
     login = "NomeUsuario";
-    senha = 000;
+    senha = "0L@#";
 }
 
-Cliente::Cliente(string login, int senha)
+Cliente::Cliente(string login, string senha)
 {
     this->login=login;
     this->senha=senha;
@@ -45,28 +46,27 @@ bool Cliente::operator==(const Cliente &gente) const
     return false;
 }
 
-void Cliente::getLogin()
+void Cliente::setLogin()
 {
     cout<<"Login: ";
     cin>>login;
 }
-void Cliente::getSenha()
+void Cliente::setSenha()
 {
     cout<<"Senha: ";
     cin>>senha;
 }
 
-string Cliente::returnLogin()
+string Cliente::getLogin()
 {
     return login;
 }
 
-int Cliente::returnSenha()
+string Cliente::getSenha()
 {
     return senha;
 }
-    
-    
+ 
 Cliente::~Cliente()
 {
 }
