@@ -18,6 +18,8 @@ public:
     string getLogin();
     string getSenha();
     bool liberaAcesso(string, int);
+    virtual string getCpf();
+    virtual void setCpf();
     
     bool operator==(const Cliente &) const;
     const Cliente &operator=(const Cliente &);

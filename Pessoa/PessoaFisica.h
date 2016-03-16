@@ -8,14 +8,11 @@ using namespace std;
 
 class PessoaFisica : public Pessoa
 {
-    friend ostream &operator<<(ostream &, const PessoaFisica &);
 public:
     PessoaFisica();
-    PessoaFisica(int);
-    PessoaFisica(const PessoaFisica &);
     ~PessoaFisica();
-    string getCpf();
-    void setCpf();
+    virtual string getCpf()=0;
+    virtual void setCpf()=0;
 
     bool operator==(const PessoaFisica &) const;
     const PessoaFisica &operator=(const PessoaFisica &);

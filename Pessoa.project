@@ -104,5 +104,7 @@
     <File Name="Pessoa/PessoaJuridica.cpp"/>
     <File Name="Pessoa/Cliente.cpp"/>
     <File Name="Pessoa/Cliente.h"/>
+    <File Name="Pessoa/Funcionario.h"/>
+    <File Name="Pessoa/Funcionario.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>

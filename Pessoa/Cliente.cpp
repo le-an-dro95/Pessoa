@@ -67,6 +67,17 @@ string Cliente::getSenha()
     return senha;
 }
  
+string PessoaFisica::getCpf()
+{
+    return cpf;
+}
+
+void PessoaFisica::setCpf()
+{
+    cout<<"CPF: ";
+    cin>>cpf;
+}
+
 Cliente::~Cliente()
 {
 }
