@@ -16,7 +16,7 @@ Cliente::Cliente(string login, string senha)
     this->senha=senha;
 }
 
-Cliente::Cliente(const Cliente &outro):PessoaFisica(static_cast<PessoaFisica> (outro))
+Cliente::Cliente(const Cliente &outro):PessoaFisica(outro)
 {
     login = outro.login;
     senha = outro.senha;
@@ -24,15 +24,13 @@ Cliente::Cliente(const Cliente &outro):PessoaFisica(static_cast<PessoaFisica> (o
 
 ostream &operator<<(ostream &out, const Cliente &gente)
 {
-    out << static_cast< PessoaFisica > (gente)
-    <<"Login: "<<gente.login;
-    
+    out<<"Login: "<<gente.login;
     return out;
 }
 
 const Cliente & Cliente::operator=(const Cliente &gente)
 {
-    static_cast <PessoaFisica&> (*this) = static_cast <PessoaFisica> (gente);
+    PessoaFisica::operator =(gente);
     login = gente.login;
     senha = gente.senha;
     
@@ -41,18 +39,15 @@ const Cliente & Cliente::operator=(const Cliente &gente)
 
 bool Cliente::operator==(const Cliente &gente) const
 {
-    if(static_cast<PessoaFisica> (*this) == static_cast <PessoaFisica>(gente) && (login == gente.login) && (senha == gente.senha))
+    if(PessoaFisica::operator==(gente) && (login == gente.login) && (senha == gente.senha))
         return true;
     return false;
 }
 
-void Cliente::setLogin()
+void Cliente::autenticacao()
 {
     cout<<"Login: ";
     cin>>login;
-}
-void Cliente::setSenha()
-{
     cout<<"Senha: ";
     cin>>senha;
 }
@@ -66,16 +61,16 @@ string Cliente::getSenha()
 {
     return senha;
 }
- 
-string PessoaFisica::getCpf()
-{
-    return cpf;
-}
 
-void PessoaFisica::setCpf()
+void Cliente::menu()
 {
-    cout<<"CPF: ";
-    cin>>cpf;
+    cout<<"     :: MENU ::\n\n";
+    cout<<"1 - Visualizar dados\n";
+    cout<<"2 - Emprestar Livro\n";
+    cout<<"3 - Devolver Livro\n";
+    cout<<"4 - Lista de livros emprestado pelo usuario\n";
+    cout<<"5 - Menu Principal\n";
+    cout<<"\n";
 }
 
 Cliente::~Cliente()

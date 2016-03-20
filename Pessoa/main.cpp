@@ -4,10 +4,11 @@
 #include <stdio.h>
 #include "Data.h"
 #include "Endereco.h"
+#include "PessoaFisica.h"
 #include "Cliente.h"
+#include "Funcionario.h"
 
 const int MAX=10;
-
 using namespace std;
 
 int main()
@@ -16,10 +17,14 @@ int main()
     int n, op, op1, idade;
     int indexPessoa=0;
     
+    //PessoaFisica* gentePt;
+    Funcionario funcionario;
     Cliente gente[MAX];
+    //gentePt = &gente[MAX];
     
     do{
-    gente[indexPessoa].menu(gente);    
+    funcionario.menu();
+    resp1="n";
     cin>>op;
         switch(op)
         {
@@ -41,11 +46,7 @@ int main()
             gente[indexPessoa].setGenero(genero);
             gente[indexPessoa].setDadosEndereco();
             gente[indexPessoa].setCpf(); //Método da Classe PessoaFisica
-            
-            //Métodos da classe Cliente:
-            gente[indexPessoa].setLogin();
-            gente[indexPessoa].setSenha();
-            //
+            gente[indexPessoa].autenticacao();//Método da classe Cliente
             cout<<"\n\nNumero de Registro: "<<indexPessoa;
 
             getch();
@@ -61,6 +62,7 @@ int main()
             cout<<"\n\nDigite o numero de Registro: ";
             cin>>indexPessoa;
             do{
+                resp2="n";
                 system("cls");
                 cout<<"Usuario: "<<gente[indexPessoa].getNome()<<"\n";
                 cout<<"Numero de Registro: "<<indexPessoa<<"\n\n";
@@ -90,13 +92,11 @@ int main()
                     cin>>livro;
                     system("cls");
                     cout<<"Confirmar Usuario\n\n";
-                    cout<<"Login: ";
-                    cin>> logintest;
                     cout<<"Senha: ";
                     cin>>senhatest;                    
-                    if((logintest == gente[indexPessoa].getLogin()) && (senhatest == gente[indexPessoa].getSenha()))
+                    if(senhatest == gente[indexPessoa].getSenha())
                         gente[indexPessoa].adcionarLivro(livro);
-                    else cout<<"Login ou senha incorretos!";
+                    else cout<<"senha incorreta!";
                     getch();
                     break;
                 }
@@ -118,13 +118,32 @@ int main()
                 }
                 }
             }while(resp2!="s");
-            break;
+        break;   
         }
         case 3:
+        {
+            system("cls");
+            cout<<"Cadastrar Livro\n\n";
+            cout<<"Titulo: ";
+            string novolivro;
+            cin>>novolivro;
+            break;
+        }
+        case 4:
+        {
+            system("cls");
+            cout<<"Cadastrar Funcionario\n";
+            cout<<"Nome: ";
+            string nomefunc;
+            cin>>nomefunc;
+            break;
+        }
+        case 5:
         {
             resp1="s";
             break;
         }
         }
-    }while(resp1!="s");    
-} 
+        
+    }while(resp1!="s");   
+}

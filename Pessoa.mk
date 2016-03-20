@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=ledri
-Date                   :=12/03/2016
+Date                   :=20/03/2016
 CodeLitePath           :="C:\Program Files\CodeLite"
 LinkerName             :=C:/TDM-GCC-64/bin/g++.exe
 SharedObjectLinkerName :=C:/TDM-GCC-64/bin/g++.exe -shared -fPIC
@@ -62,7 +62,7 @@ AS       := C:/TDM-GCC-64/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/Pessoa_main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Pessoa_Pessoa.cpp$(ObjectSuffix) $(IntermediateDirectory)/Pessoa_Data.cpp$(ObjectSuffix) $(IntermediateDirectory)/Pessoa_Endereco.cpp$(ObjectSuffix) $(IntermediateDirectory)/Pessoa_PessoaFisica.cpp$(ObjectSuffix) $(IntermediateDirectory)/Pessoa_PessoaJuridica.cpp$(ObjectSuffix) $(IntermediateDirectory)/Pessoa_Cliente.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/Pessoa_main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Pessoa_Pessoa.cpp$(ObjectSuffix) $(IntermediateDirectory)/Pessoa_Data.cpp$(ObjectSuffix) $(IntermediateDirectory)/Pessoa_Endereco.cpp$(ObjectSuffix) $(IntermediateDirectory)/Pessoa_PessoaFisica.cpp$(ObjectSuffix) $(IntermediateDirectory)/Pessoa_PessoaJuridica.cpp$(ObjectSuffix) $(IntermediateDirectory)/Pessoa_Cliente.cpp$(ObjectSuffix) $(IntermediateDirectory)/Pessoa_Funcionario.cpp$(ObjectSuffix) 
 
 
 
@@ -148,6 +148,14 @@ $(IntermediateDirectory)/Pessoa_Cliente.cpp$(DependSuffix): Pessoa/Cliente.cpp
 
 $(IntermediateDirectory)/Pessoa_Cliente.cpp$(PreprocessSuffix): Pessoa/Cliente.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Pessoa_Cliente.cpp$(PreprocessSuffix) "Pessoa/Cliente.cpp"
+
+$(IntermediateDirectory)/Pessoa_Funcionario.cpp$(ObjectSuffix): Pessoa/Funcionario.cpp $(IntermediateDirectory)/Pessoa_Funcionario.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/ledri/Desktop/Prog2/Pessoa/Pessoa/Funcionario.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Pessoa_Funcionario.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Pessoa_Funcionario.cpp$(DependSuffix): Pessoa/Funcionario.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Pessoa_Funcionario.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Pessoa_Funcionario.cpp$(DependSuffix) -MM "Pessoa/Funcionario.cpp"
+
+$(IntermediateDirectory)/Pessoa_Funcionario.cpp$(PreprocessSuffix): Pessoa/Funcionario.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Pessoa_Funcionario.cpp$(PreprocessSuffix) "Pessoa/Funcionario.cpp"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

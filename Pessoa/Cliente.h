@@ -13,13 +13,12 @@ public:
     Cliente(string, string);
     Cliente(const Cliente &);
     ~Cliente();
-    void setLogin();
-    void setSenha();
     string getLogin();
     string getSenha();
+    
+    virtual void autenticacao();
+    virtual void menu();
     bool liberaAcesso(string, int);
-    virtual string getCpf();
-    virtual void setCpf();
     
     bool operator==(const Cliente &) const;
     const Cliente &operator=(const Cliente &);
