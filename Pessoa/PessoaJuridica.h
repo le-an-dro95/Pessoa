@@ -17,7 +17,6 @@ public:
     void imprimiDados();
     void setCnpj(int);
     
-    
     bool operator==(const PessoaJuridica &) const;
     const PessoaJuridica &operator=(const PessoaJuridica &);
 

@@ -2,6 +2,7 @@
 #include <string>
 #include <conio.h>
 #include <stdio.h>
+#include <vector.h>
 #include "Data.h"
 #include "Endereco.h"
 #include "PessoaFisica.h"
@@ -17,10 +18,18 @@ int main()
     int n, op, op1, idade;
     int indexPessoa=0;
     
-    //PessoaFisica* gentePt;
     Funcionario funcionario;
-    Cliente gente[MAX];
-    //gentePt = &gente[MAX];
+    
+    vector <PessoaFisica*> gente;
+    gente.push_back(&Cliente1);
+    
+    for(int i=0;i<cliente.menu();i++){
+        Cliente *derivedPtr = dynamic_cast<Cliente*> (gente[i]);
+        if (derivedPtr != 0)
+        {
+            gente.menu();
+        }
+    }
     
     do{
     funcionario.menu();
