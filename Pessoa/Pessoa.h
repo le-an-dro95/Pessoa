@@ -29,6 +29,7 @@ public:
     void adcionarLivro(const string &);
     void remLivro();
     void listarLivros();  
+    virtual void apresentarMenu()=0;
 
     static void atualizarNumeroLivros();//-->
 

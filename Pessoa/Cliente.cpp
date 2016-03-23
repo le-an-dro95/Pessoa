@@ -62,7 +62,7 @@ string Cliente::getSenha()
     return senha;
 }
 
-void Cliente::menu()
+void Cliente::apresentarMenu()
 {
     cout<<"     :: MENU ::\n\n";
     cout<<"1 - Visualizar dados\n";

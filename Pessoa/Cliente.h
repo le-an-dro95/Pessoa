@@ -17,7 +17,7 @@ public:
     string getSenha();
     
     virtual void autenticacao();
-    virtual void menu();
+    virtual void apresentarMenu();
     bool liberaAcesso(string, int);
     
     bool operator==(const Cliente &) const;

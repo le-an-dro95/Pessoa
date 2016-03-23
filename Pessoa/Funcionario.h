@@ -18,7 +18,7 @@ public:
     string getSenha();
     bool liberaAcesso(string, int);
     virtual void autenticacao();
-    virtual void menu();
+    virtual void apresentarMenu();
     
     bool operator==(const Funcionario &) const;
     const Funcionario &operator=(const Funcionario &);

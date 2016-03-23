@@ -17,7 +17,7 @@ public:
     string getCpf();
     void setCpf();
     virtual void autenticacao()=0;
-    virtual void menu()=0;
+    virtual void apresentarMenu()=0;
 
     bool operator==(const PessoaFisica &) const;
     const PessoaFisica &operator=(const PessoaFisica &);

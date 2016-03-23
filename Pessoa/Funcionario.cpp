@@ -62,7 +62,7 @@ string Funcionario::getSenha()
     return senha;
 }
 
-void Funcionario::menu()
+void Funcionario::apresentarMenu()
 {
     system("cls");
     cout<<":: MENU ::\n\n";
