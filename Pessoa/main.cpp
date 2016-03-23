@@ -18,16 +18,20 @@ int main()
     int n, op, op1, idade;
     int indexPessoa=0;
     
-    Funcionario funcionario;
+    //Funcionario funcionario;
     
-    vector <PessoaFisica*> gente;
-    gente.push_back(&Cliente1);
+    vector <PessoaFisica*> gente(10);
     
-    for(int i=0;i<cliente.menu();i++){
-        Cliente *derivedPtr = dynamic_cast<Cliente*> (gente[i]);
-        if (derivedPtr != 0)
+    gente[0] = new Cliente;
+    gente[1] = new Cliente;
+    gente[2] = new Cliente;
+    
+    for(int i=0;i<MAX;i++)
         {
-            gente.menu();
+        Cliente *derivedPtr = dynamic_cast<Cliente*> (gente[i]);
+        if (derivedPtr)
+        {
+            derivedPtr->menu();
         }
     }
     
