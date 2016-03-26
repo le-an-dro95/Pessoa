@@ -159,17 +159,6 @@ int Pessoa::getMaxEmprestimo()
     return this->maxEmprestimo;
 }
 
-void Pessoa::menu(Pessoa *gente)
-{   
-    system("cls");   
-    cout<<"Quantidade de usuario cadastrado: "<<gente[indexPessoa].getQtdPessoas()<<"\n\n";
-    cout<<"::::Menu::::\n\n";
-    cout<<"1-Novo Cadastro\n";
-    cout<<"2-Ja cadastrado\n";
-    cout<<"3-SAIR\n\n";
-    cout<<"Operacao: ";
-}
-
 void Pessoa::setDadosEndereco()
 {   
     string rua, bairro, cidade, estado;

@@ -14,30 +14,27 @@ PessoaFisica::PessoaFisica(int cpf)
     this->cpf = cpf;
 }
 
-PessoaFisica::PessoaFisica(const PessoaFisica &outra):Pessoa(static_cast<Pessoa> (outra))
+PessoaFisica::PessoaFisica(const PessoaFisica &outra):Pessoa(outra)
 {
     cpf = outra.cpf;
 }
 
 ostream &operator<<(ostream &out, const PessoaFisica &gente)
 {
-out << static_cast <Pessoa> (gente)
-<< "CPF: "<<gente.cpf<<"\n";
+out << "CPF: "<<gente.cpf<<"\n";
 return out;
 }
 
 bool PessoaFisica::operator==(const PessoaFisica &gente) const
 {
-    if((static_cast<Pessoa> (*this) == static_cast <Pessoa>(gente)) && (cpf == gente.cpf))
+    if(cpf == gente.cpf)
         return true;
     return false;
 }
 
 const PessoaFisica & PessoaFisica::operator=(const PessoaFisica &gente)
 {
-    static_cast <Pessoa&> (*this) = static_cast <Pessoa> (gente);
     cpf = gente.cpf;
-    
     return *this;
 }
     

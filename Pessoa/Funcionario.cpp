@@ -52,6 +52,12 @@ void Funcionario::autenticacao()
     cin>>senha;
 }
 
+bool Funcionario::liberaAcesso()
+{
+    if (idFuncionario == "123" && senha=="123")
+        return true;
+}
+
 string Funcionario::getLogin()
 {
     return idFuncionario;

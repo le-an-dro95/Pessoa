@@ -14,7 +14,7 @@ public:
     Cliente(const Cliente &);
     ~Cliente();
     string getLogin();
-    string getSenha();
+    virtual string getSenha();
     
     virtual void autenticacao();
     virtual void apresentarMenu();

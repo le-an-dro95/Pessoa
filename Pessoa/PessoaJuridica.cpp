@@ -17,28 +17,26 @@ PessoaJuridica::PessoaJuridica(int cnpj)
 }
 
 
-PessoaJuridica::PessoaJuridica(const PessoaJuridica &outra): Pessoa( static_cast<Pessoa>(outra))
+PessoaJuridica::PessoaJuridica(const PessoaJuridica &outra)
 {
     this->cnpj = outra.cnpj;
 }
 
 ostream &operator<<(ostream &out, const PessoaJuridica &gente)
 {
-out << static_cast <Pessoa> (gente)
-<< "CNPJ: "<<gente.cnpj<<"\n";
+out << "CNPJ: "<<gente.cnpj<<"\n";
 return out;
 }
 
 bool PessoaJuridica::operator==(const PessoaJuridica &gente) const
 {
-    if((static_cast<Pessoa> (*this) == static_cast <Pessoa>(gente)) && (cnpj == gente.cnpj))
+    if (cnpj == gente.cnpj)
         return true;
     return false;
 }
 
 const PessoaJuridica & PessoaJuridica::operator=(const PessoaJuridica &gente)
 {
-    static_cast <Pessoa&> (*this) = static_cast <Pessoa> (gente);
     cnpj = gente.cnpj;
     
     return *this;

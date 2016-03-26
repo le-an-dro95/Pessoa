@@ -3,6 +3,7 @@
 #include <string>
 #include "Data.h"
 #include "Endereco.h"
+#include <vector>
 
 using namespace std;
 
@@ -13,7 +14,6 @@ public:
     Pessoa();
     Pessoa(const Pessoa &); 
     ~Pessoa();
-    void menu(Pessoa *);
     void setNome(const string &);
     void setIdade(int);
     void setGenero(const string &);
