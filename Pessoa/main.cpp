@@ -9,42 +9,37 @@
 
 using namespace std;
 
-void apresentarMenu(PessoaFisica *gente);
-
 int main()
 {   
-    apresentarMenu(new Funcionario());
-}
-
-void apresentarMenu(PessoaFisica *gente)
-    {
-    vector <PessoaFisica*> pessoas;//vector para estancias mais de uma pessoa
-    Funcionario * funcionarioPtr = dynamic_cast<Funcionario *>(gente);//dynamic cast para chamar os métodos do funcionario.
     string resp1, resp2, nome, genero, livro;
     int indexPessoa=0;
     int op, op1, idade;
     
-    /* é necessário ter um Login e Senha para entrar no sistema
-    Login: 123;
-    Senha: 123;*/
+    vector <PessoaFisica*> pessoas;//vector para estanciar mais de uma pessoa
     
-    do{ 
-        system("cls");
-        cout<<"\n-----------> Bem Vindo! <-----------\n\n"<<"Entrar no Sistema\n\n";
-        funcionarioPtr->autenticacao(); //usando dynamic_cast para autenticar o funcionario
-        if(funcionarioPtr->liberaAcesso()!=true) //usando dynamic_cast para liberar (ou não) o acesso;
+    pessoas.push_back(new Funcionario);
+    pessoas.push_back(new Cliente);
+    
+    for(int i=0; i<pessoas.size();i++)
+    {
+        Funcionario * funcionarioPtr = dynamic_cast<Funcionario *>(pessoas[i]);//dynamic cast para chamar os métodos do funcionario.
+        if (funcionarioPtr != 0)
         {
-            cout<<"Acesso Negado!\n\n";
-            getch();
-            resp1="s";
+            funcionarioPtr->autenticacao();
         }
-        else resp1="n";
-    }while(resp1=="s");
+        else
+        {
+            Cliente * clientePtr = dynamic_cast<Cliente *>(pessoas[i]);//dynamic cast para chamar os métodos do funcionario.
+            if (clientePtr != 0) 
+            {
+                clientePtr->autenticacao();
+            }
+        }
+    }
     
-    //se o acesso for permitido-->
     do{
+    pessoas[indexPessoa]->apresentarMenu();
     cout<<"\n";
-    funcionarioPtr->apresentarMenu();//Usando dynamic_cast para chamar menu do funcionario;
     cout<<"\n\n\nQuantidade de usuario cadastrado: "<<pessoas.size()<<"\n\n";
     resp1="n";
     cin>>op;
@@ -54,9 +49,8 @@ void apresentarMenu(PessoaFisica *gente)
         {     
             system("cls"); 
             cout<<"::: CADASTRO :::\n\n";
-
-            gente = new Cliente();
-            pessoas.push_back(gente);
+            
+            pessoas.push_back(new Cliente);
             
             indexPessoa=pessoas.size()-1;
             cout<<"Nome: ";
