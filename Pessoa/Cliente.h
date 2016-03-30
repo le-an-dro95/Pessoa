@@ -16,7 +16,7 @@ public:
     string getLogin();
     virtual string getSenha();
     
-    virtual void autenticacao();
+    virtual void autenticar();
     virtual void apresentarMenu();
     bool liberaAcesso(string, int);
     

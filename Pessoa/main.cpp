@@ -7,6 +7,9 @@
 #include "Cliente.h"
 #include "Funcionario.h"
 
+
+//falta fazer o nivel de acesso na classe pessoaFisica;
+
 using namespace std;
 
 int main()
@@ -15,28 +18,33 @@ int main()
     int indexPessoa=0;
     int op, op1, idade;
     
-    vector <PessoaFisica*> pessoas;//vector para estanciar mais de uma pessoa
+    vector <PessoaFisica*> pessoas;//vector para estanciar mais de uma pessoa..
     
     pessoas.push_back(new Funcionario);
     pessoas.push_back(new Cliente);
+    pessoas.push_back(new Funcionario);
+    pessoas.push_back(new Cliente);
+    pessoas.push_back(new Funcionario);
+    
+    for(i=0;i<4;i++){
+    livro="Livro";
+    pessoas[1]->adcionarLivro(livro);
+    pessoas[3]->adicionarLivro(livro);
+    }
     
     for(int i=0; i<pessoas.size();i++)
     {
-        Funcionario * funcionarioPtr = dynamic_cast<Funcionario *>(pessoas[i]);//dynamic cast para chamar os métodos do funcionario.
-        if (funcionarioPtr != 0)
-        {
-            funcionarioPtr->autenticacao();
-        }
-        else
-        {
-            Cliente * clientePtr = dynamic_cast<Cliente *>(pessoas[i]);//dynamic cast para chamar os métodos do funcionario.
-            if (clientePtr != 0) 
+        pessoas[i]->autenticar();
+        
+        Cliente * clientePtr = dynamic_cast<Cliente *>(pessoas[i]);//dynamic cast para chamar os métodos do funcionario.
+        
+        if (clientePtr != 0) 
             {
-                clientePtr->autenticacao();
+                system("cls");
+                cout<<"\nLista de Livros: \n\n";
+                clientePtr->listarLivros();
             }
-        }
     }
-    
     do{
     pessoas[indexPessoa]->apresentarMenu();
     cout<<"\n";

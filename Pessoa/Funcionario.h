@@ -17,7 +17,7 @@ public:
     string getLogin();
     string getSenha();
     bool liberaAcesso();
-    virtual void autenticacao();
+    virtual void autenticar();
     virtual void apresentarMenu();
     
     bool operator==(const Funcionario &) const;
@@ -27,6 +27,7 @@ private:
 
 string idFuncionario;
 string senha;
+string senhaMestra;
 };
 
 #endif // FUNCIONARIO_H

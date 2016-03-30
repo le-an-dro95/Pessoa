@@ -1,7 +1,7 @@
 #include "Pessoa.h"
 #include <iostream>
 #include <string>
-#include <conio.h>
+//#include <conio.h>
 #include "Data.h"
 #include "Endereco.h"
 

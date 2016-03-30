@@ -14,12 +14,14 @@ Funcionario::Funcionario(string idFuncionario, string senha)
 {
     this->idFuncionario=idFuncionario;
     this->senha=senha;
+    this->senhaMestra=senhaMestra;
 }
 
 Funcionario::Funcionario(const Funcionario &outro):PessoaFisica(outro)
 {
     idFuncionario = outro.idFuncionario;
     senha = outro.senha;
+    senhaMestra = outro.senhaMestra;
 }
 
 ostream &operator<<(ostream &out, const Funcionario &gente)
@@ -33,6 +35,7 @@ const Funcionario & Funcionario::operator=(const Funcionario &gente)
     PessoaFisica::operator =(gente);
     idFuncionario = gente.idFuncionario;
     senha = gente.senha;
+    senhaMestra = gente.senhaMestra;
     
     return *this;
 }
@@ -44,17 +47,19 @@ bool Funcionario::operator==(const Funcionario &gente) const
     return false;
 }
 
-void Funcionario::autenticacao()
+void Funcionario::autenticar()
 {
     cout<<"ID Funcionario: ";
     cin>>idFuncionario;
+    cout<<"Senha Mestra: ";
+    cin<<senhaMestra;
     cout<<"Senha: ";
     cin>>senha;
 }
 
 bool Funcionario::liberaAcesso()
 {
-    if (idFuncionario == "123" && senha=="123")
+    if (idFuncionario == "123" && senha=="123" && senhaMestra== "123")
         return true;
 }
 
