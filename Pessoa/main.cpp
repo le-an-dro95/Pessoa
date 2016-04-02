@@ -26,7 +26,7 @@ int main()
     for(i=0;i<3;i++){
     livro="Livro";
     pessoas[1]->adcionarLivro(livro);//Adicionando livros para clientes;
-    //pessoas[3]->adcionarLivro(livro);
+    pessoas[3]->adcionarLivro(livro);
     }
     
     for(i=0; i<pessoas.size();i++)
@@ -47,7 +47,7 @@ int main()
             funcionarioPtr->niveldeAcesso=1;
         }
     }
-    
+
     do{
     pessoas[indexPessoa]->apresentarMenu();
     cout<<"\n";
