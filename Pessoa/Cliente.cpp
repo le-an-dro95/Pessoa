@@ -44,7 +44,7 @@ bool Cliente::operator==(const Cliente &gente) const
     return false;
 }
 
-void Cliente::autenticacao()
+void Cliente::autenticar()
 {
     cout<<"Login: ";
     cin>>login;

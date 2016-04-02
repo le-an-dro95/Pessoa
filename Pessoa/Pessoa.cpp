@@ -1,7 +1,7 @@
 #include "Pessoa.h"
 #include <iostream>
 #include <string>
-//#include <conio.h>
+#include <conio.h>
 #include "Data.h"
 #include "Endereco.h"
 
@@ -80,7 +80,7 @@ void Pessoa::adcionarLivro(const string &livro)
         this->livroNomes = new string[++qtddeLivros];
         this->livroNomes[0] = livro;
     }
-    cout<<"Confirmado";
+    //cout<<"Confirmado";
     }
     else 
     {

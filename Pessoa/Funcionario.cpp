@@ -52,7 +52,7 @@ void Funcionario::autenticar()
     cout<<"ID Funcionario: ";
     cin>>idFuncionario;
     cout<<"Senha Mestra: ";
-    cin<<senhaMestra;
+    cin>>senhaMestra;
     cout<<"Senha: ";
     cin>>senha;
 }

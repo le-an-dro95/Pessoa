@@ -7,18 +7,15 @@
 #include "Cliente.h"
 #include "Funcionario.h"
 
-
-//falta fazer o nivel de acesso na classe pessoaFisica;
-
 using namespace std;
 
 int main()
 {   
     string resp1, resp2, nome, genero, livro;
     int indexPessoa=0;
-    int op, op1, idade;
+    int op, op1, idade, i;
     
-    vector <PessoaFisica*> pessoas;//vector para estanciar mais de uma pessoa..
+    vector <PessoaFisica*> pessoas;//vector para estanciar mais de uma pessoa
     
     pessoas.push_back(new Funcionario);
     pessoas.push_back(new Cliente);
@@ -26,25 +23,31 @@ int main()
     pessoas.push_back(new Cliente);
     pessoas.push_back(new Funcionario);
     
-    for(i=0;i<4;i++){
+    for(i=0;i<3;i++){
     livro="Livro";
-    pessoas[1]->adcionarLivro(livro);
-    pessoas[3]->adicionarLivro(livro);
+    pessoas[1]->adcionarLivro(livro);//Adicionando livros para clientes;
+    //pessoas[3]->adcionarLivro(livro);
     }
     
-    for(int i=0; i<pessoas.size();i++)
+    for(i=0; i<pessoas.size();i++)
     {
         pessoas[i]->autenticar();
         
-        Cliente * clientePtr = dynamic_cast<Cliente *>(pessoas[i]);//dynamic cast para chamar os métodos do funcionario.
-        
+        Cliente * clientePtr = dynamic_cast<Cliente *>(pessoas[i]);//dynamic cast para chamar o método do Cliente.
+        Funcionario * funcionarioPtr = dynamic_cast<Funcionario *>(pessoas[i]);
         if (clientePtr != 0) 
-            {
-                system("cls");
-                cout<<"\nLista de Livros: \n\n";
-                clientePtr->listarLivros();
-            }
+        {
+            clientePtr->niveldeAcesso=0;
+            system("cls");
+            cout<<"\nLista de Livros: \n\n";
+            clientePtr->listarLivros();
+        }
+        if(funcionarioPtr != 0)
+        {
+            funcionarioPtr->niveldeAcesso=1;
+        }
     }
+    
     do{
     pessoas[indexPessoa]->apresentarMenu();
     cout<<"\n";
@@ -73,7 +76,7 @@ int main()
             pessoas[indexPessoa]->setGenero(genero);
             pessoas[indexPessoa]->setDadosEndereco();
             pessoas[indexPessoa]->setCpf(); //Método da Classe PessoaFisica
-            pessoas[indexPessoa]->autenticacao();//Método virtual da classe Cliente
+            pessoas[indexPessoa]->autenticar();//Método virtual da classe Cliente
             cout<<"\n\nNumero de Registro: "<<indexPessoa;
             getch();
             break;
@@ -181,8 +184,9 @@ int main()
     }while(resp1!="s");   
     
     //deletando os elementos do vector.
-    for(int i=0;i<pessoas.size();i++)
+    for(i=0;i<pessoas.size();i++)
     {
         delete pessoas[i];
     }
 }
+

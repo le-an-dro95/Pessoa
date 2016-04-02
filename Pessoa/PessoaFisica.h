@@ -16,15 +16,17 @@ public:
     ~PessoaFisica();
     string getCpf();
     void setCpf();
-    virtual void autenticacao()=0;
+    virtual void autenticar()=0;
     virtual void apresentarMenu()=0;
     virtual string getSenha()=0;
 
     bool operator==(const PessoaFisica &) const;
     const PessoaFisica &operator=(const PessoaFisica &);
-     
+    int niveldeAcesso;
+    
 private:
-    string cpf; 
+    string cpf;
+    
 };
 
 #endif // PESSOAFISICA_H
